@@ -1,0 +1,16 @@
+﻿using ChineseRaffleApi.Models;
+
+namespace ChineseRaffleApi.Repository.DI
+{
+    public interface IGiftRepo
+    {
+        Task<Gift?> GetGiftByIdAsync(int id);
+        Task<IEnumerable<Gift>> GetAllGiftsAsync();
+        Task AddGiftAsync(Gift gift);
+        Task<bool> UpdateGiftAsync(int id,Gift gift);
+        Task<bool> DeleteGiftAsync(int id);
+        Task<bool> GiftExistsAsync(string title);
+        Task<IEnumerable<Gift>> GetGiftByDonorNameAsync(string name);
+        Task<IEnumerable<Gift>> GetGiftByTitleAsync(string title);
+    }
+}

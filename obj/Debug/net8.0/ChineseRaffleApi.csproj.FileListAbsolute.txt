@@ -1,0 +1,341 @@
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.csproj.AssemblyReference.cache
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.AssemblyInfoInputs.cache
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.AssemblyInfo.cs
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.csproj.CoreCompileInputs.cache
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.sourcelink.json
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\appsettings.Development.json
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\appsettings.json
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ChineseRaffleApi.exe
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ChineseRaffleApi.deps.json
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ChineseRaffleApi.runtimeconfig.json
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ChineseRaffleApi.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ChineseRaffleApi.pdb
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Azure.Core.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Azure.Identity.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Humanizer.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Build.Locator.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.ClientModel.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.CodeDom.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Composition.Convention.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Composition.Hosting.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Composition.Runtime.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Composition.TypedParts.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Drawing.Common.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Formats.Asn1.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Text.Json.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\staticwebassets.build.json
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\staticwebassets.development.json
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\staticwebassets\msbuild.ChineseRaffleApi.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\staticwebassets\msbuild.build.ChineseRaffleApi.props
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ChineseRaffleApi.props
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ChineseRaffleApi.props
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\scopedcss\bundle\ChineseRaffleApi.styles.css
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseR.87DD4727.Up2Date
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\refint\ChineseRaffleApi.dll
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.pdb
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.genruntimeconfig.cache
+C:\Projects\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ref\ChineseRaffleApi.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\appsettings.Development.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\appsettings.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ChineseRaffleApi.staticwebassets.endpoints.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ChineseRaffleApi.exe
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ChineseRaffleApi.deps.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ChineseRaffleApi.runtimeconfig.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ChineseRaffleApi.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ChineseRaffleApi.pdb
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Azure.Core.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Azure.Identity.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Humanizer.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Build.Locator.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Mono.TextTemplating.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.ClientModel.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.CodeDom.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Composition.Convention.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Composition.Hosting.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Composition.Runtime.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Composition.TypedParts.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Drawing.Common.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Formats.Asn1.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.IO.Pipelines.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Memory.Data.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Runtime.Caching.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Security.Permissions.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Text.Json.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\System.Windows.Extensions.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.csproj.AssemblyReference.cache
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\rpswa.dswa.cache.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.GeneratedMSBuildEditorConfig.editorconfig
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.AssemblyInfoInputs.cache
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.AssemblyInfo.cs
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.csproj.CoreCompileInputs.cache
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.MvcApplicationPartsAssemblyInfo.cs
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.MvcApplicationPartsAssemblyInfo.cache
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.sourcelink.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\rjimswa.dswa.cache.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\scopedcss\bundle\ChineseRaffleApi.styles.css
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\staticwebassets.build.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\staticwebassets.build.json.cache
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\staticwebassets.development.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseR.87DD4727.Up2Date
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\refint\ChineseRaffleApi.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.pdb
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ChineseRaffleApi.genruntimeconfig.cache
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\ref\ChineseRaffleApi.dll
+E:\Web Api\ChineseRaffleApi\ChineseRaffleApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
