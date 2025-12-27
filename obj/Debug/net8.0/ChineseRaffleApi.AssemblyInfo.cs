@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChineseRaffleApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8828f3398578ebd435c03a3f7cc01fa331adc474")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChineseRaffleApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChineseRaffleApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
