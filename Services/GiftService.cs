@@ -4,6 +4,7 @@ using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Repository;
 using ChineseRaffleApi.Repository.DI;
 using ChineseRaffleApi.Services.DI;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ChineseRaffleApi.Services
 {
@@ -131,6 +132,16 @@ namespace ChineseRaffleApi.Services
         {
             var gifts = await _giftRepo.GetGiftsWithTicketsAsync();
             return _mapper.Map<IEnumerable<GetGiftWithBuyersDto>>(gifts);
+        }
+        public async Task<IEnumerable<GetGiftDto>> GetSortedGiftsByPriceAsync()
+        {
+            var gifts = await _giftRepo.GetSortedGiftsByPriceAsync();
+            return _mapper.Map<IEnumerable<GetGiftDto>>(gifts);
+        }
+        public async Task<IEnumerable<GetGiftDto>> GetSortedGiftsByCategoryAsync()
+        {
+            var gifts = await _giftRepo.GetSortedGiftsByCategoryAsync();
+            return _mapper.Map<IEnumerable<GetGiftDto>>(gifts);
         }
     }
 }

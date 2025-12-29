@@ -1,4 +1,6 @@
-﻿using ChineseRaffleApi.Models;
+﻿using AutoMapper;
+using ChineseRaffleApi.Dto;
+using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Repository.DI;
 using ChineseRaffleApi.Services.DI;
 
@@ -7,28 +9,64 @@ namespace ChineseRaffleApi.Services
     public class BasketService : IBasketService
     {
         private readonly IBasketRepo _basketRepo;
-        public BasketService(IBasketRepo basketRepo)
+        private readonly IMapper _mapper;
+
+        public BasketService(IBasketRepo basketRepo, IMapper mapper)
         {
             _basketRepo = basketRepo;
+            _mapper = mapper;
         }
-        public async Task<Basket> GetBasketByIdAsync(int id)
+        public async Task<GetBasketDto?> GetBasketByIdAsync(int id)
         {
-            return await _basketRepo.GetBasketByIdAsync(id);
+            var basket = await _basketRepo.GetBasketByIdAsync(id);
+            return _mapper.Map<GetBasketDto>(basket);
         }
-
-        public async Task<IEnumerable<Basket>> GetAllBasketsAsync()
+        public async Task<IEnumerable<GetBasketDto>> GetBasketsByUserIdAsync(int userId)
         {
-            return await _basketRepo.GetAllBasketsAsync();
-        }
-
-        public async Task AddBasketAsync(Basket basket)
-        {
-            await _basketRepo.AddBasketAsync(basket);
+            var basket = await _basketRepo.GetBasketsByUserIdAsync(userId);
+            return _mapper.Map<IEnumerable<GetBasketDto>>(basket);
         }
 
-        public async Task UpdateBasketAsync(Basket basket)
+        public async Task<IEnumerable<GetBasketDto>> GetBasketsByGiftIdAsync(int giftId)
         {
-            await _basketRepo.UpdateBasketAsync(basket);
+            var basket = await _basketRepo.GetBasketsByGiftIdAsync(giftId);
+            return _mapper.Map<IEnumerable<GetBasketDto>>(basket);
+
+        }
+        //public async Task<IEnumerable<Basket>> GetAllBasketsAsync()
+        //{
+        //    return await _basketRepo.GetAllBasketsAsync();
+        //}
+
+        public async Task<int?> AddBasketAsync(AddBasketDto basketDto)
+        {
+            var basket = _mapper.Map<Basket>(basketDto);
+
+            var existingBasket = await _basketRepo
+                .GetByUserAndGiftAsync(basket.UserId, basket.GiftId);
+
+            if (existingBasket != null)
+            {
+                existingBasket.Quantity += basket.Quantity;
+                await _basketRepo.UpdateBasketAsync(existingBasket.Id, existingBasket);
+                return existingBasket.Id;
+            }
+            return await _basketRepo.AddBasketAsync(basket);
+        }
+
+        public async Task UpdateBasketAsync(int id, UpdateBasketDto basket)
+        {
+            if (basket.Quantity <= 0)
+                throw new ArgumentException("Quantity must be greater than zero");
+
+            var existingBasket = await _basketRepo.GetBasketByIdAsync(id);
+
+            if (existingBasket == null)
+                throw new KeyNotFoundException($"Basket with id {id} not found");
+
+            existingBasket.Quantity = basket.Quantity;
+
+            await _basketRepo.UpdateBasketAsync(id, existingBasket);
         }
 
         public async Task DeleteBasketAsync(int id)
@@ -40,17 +78,5 @@ namespace ChineseRaffleApi.Services
         {
             return await _basketRepo.BasketExistsAsync(id);
         }
-
-        public async Task<IEnumerable<Basket>> GetBasketsByUserIdAsync(int userId)
-        {
-            return await _basketRepo.GetBasketsByUserIdAsync(userId);
-        }
-
-        public async Task<IEnumerable<Basket>> GetBasketsByGiftIdAsync(int giftId)
-        {
-            return await _basketRepo.GetBasketsByGiftIdAsync(giftId);
-        }
-
-
     }
 }

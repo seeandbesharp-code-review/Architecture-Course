@@ -35,6 +35,8 @@ namespace ChineseRaffleApi.Dto
         public string Title { get; set; } = string.Empty;
         [Required]
         public int TicketPrice { get; set; }
+        public int? CategoryId { get; set; }
+
         public string? Image { get; set; }
     }
     public class  GetGiftWithTicketsDto
@@ -44,6 +46,8 @@ namespace ChineseRaffleApi.Dto
         [MaxLength(100)]
         [Required]
         public string Title { get; set; } = string.Empty;
+        public int? CategoryId { get; set; }
+
         public IEnumerable<GetTicketDto> Tickets { get; set; } = new List<GetTicketDto>();
         public int QuantitySold { get; set; }
     }
@@ -54,6 +58,8 @@ namespace ChineseRaffleApi.Dto
         [MaxLength(100)]
         [Required]
         public string Title { get; set; } = string.Empty;
+        public int? CategoryId { get; set; }
+
         public IEnumerable<GetUserDto> Buyers { get; set; } = new List<GetUserDto>();
     }
 }

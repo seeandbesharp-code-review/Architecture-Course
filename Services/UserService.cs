@@ -4,7 +4,6 @@ using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Repository.DI;
 using ChineseRaffleApi.Services.DI;
 using Microsoft.Extensions.Configuration;
-using StoreApi.Services;
 
 namespace ChineseRaffleApi.Services
 {
@@ -101,7 +100,7 @@ namespace ChineseRaffleApi.Services
                 return null;
             }
 
-            var token = _tokenService.GenerateToken(user.Id, user.Email, user.UserName);
+            var token = _tokenService.GenerateToken(user.Id, user.Email, user.UserName, user.Role);
             var expiryMinutes = _configuration.GetValue<int>("JwtSettings:ExpiryMinutes", 60);
 
             _logger.LogInformation("User {UserId} authenticated successfully", user.Id);

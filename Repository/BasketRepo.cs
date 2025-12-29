@@ -30,15 +30,26 @@ namespace ChineseRaffleApi.Repository
                 .ToListAsync();
         }
 
-        public async Task AddBasketAsync(Basket basket)
+        public async Task<int?> AddBasketAsync(Basket basket)
         {
             _context.Baskets.Add(basket);
             await _context.SaveChangesAsync();
+            return basket.Id;
         }
 
-        public async Task UpdateBasketAsync(Basket basket)
+        public async Task UpdateBasketAsync(int id, Basket basket)
         {
-            _context.Baskets.Update(basket);
+            var existingBasket = await _context.Baskets
+                .FirstOrDefaultAsync(b => b.Id == id);
+
+            if (existingBasket == null)
+                throw new KeyNotFoundException($"Basket with id {id} not found");
+
+            if (basket.Quantity <= 0)
+                throw new ArgumentException("Quantity must be greater than zero");
+
+            existingBasket.Quantity = basket.Quantity;
+
             await _context.SaveChangesAsync();
         }
 
@@ -71,6 +82,11 @@ namespace ChineseRaffleApi.Repository
                 .Include(b => b.User)
                 .Where(b => b.GiftId == giftId)
                 .ToListAsync();
+        }
+        public async Task<Basket?> GetByUserAndGiftAsync(int userId, int giftId)
+        {
+            return await _context.Baskets
+                .FirstOrDefaultAsync(b => b.UserId == userId && b.GiftId == giftId);
         }
     }
 }

@@ -4,10 +4,12 @@ using ChineseRaffleApi.Dto;
 using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Services;
 using ChineseRaffleApi.Services.DI;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChineseRaffleApi.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class DonorController : ControllerBase
