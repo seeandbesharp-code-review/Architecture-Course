@@ -1,9 +1,11 @@
 ﻿using ChineseRaffleApi.Services.DI;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChineseRaffleApi.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class RaffleController : ControllerBase

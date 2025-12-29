@@ -1,18 +1,17 @@
-﻿using ChineseRaffleApi.Models;
+﻿using ChineseRaffleApi.Dto;
+using ChineseRaffleApi.Models;
 
 namespace ChineseRaffleApi.Services.DI
 {
     public interface IBasketService
     {
-        Task<Basket> GetBasketByIdAsync(int id);
-        Task<IEnumerable<Basket>> GetAllBasketsAsync();
-        Task AddBasketAsync(Basket basket);
-        Task UpdateBasketAsync(Basket basket);
+        Task<GetBasketDto?> GetBasketByIdAsync(int id);
+        //Task<IEnumerable<GetBasketDto>> GetAllBasketsAsync();
+        Task<int?> AddBasketAsync(AddBasketDto basket);
+        Task UpdateBasketAsync(int id, UpdateBasketDto basket);
         Task DeleteBasketAsync(int id);
         Task<bool> BasketExistsAsync(int basketId);
-        Task<IEnumerable<Basket>> GetBasketsByUserIdAsync(int userId);
-        Task<IEnumerable<Basket>> GetBasketsByGiftIdAsync(int giftId);
-
-
+        Task<IEnumerable<GetBasketDto>> GetBasketsByUserIdAsync(int userId);
+        Task<IEnumerable<GetBasketDto>> GetBasketsByGiftIdAsync(int giftId);
     }
 }

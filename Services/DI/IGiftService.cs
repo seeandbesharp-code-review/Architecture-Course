@@ -1,5 +1,6 @@
 ﻿using ChineseRaffleApi.Dto;
 using ChineseRaffleApi.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ChineseRaffleApi.Services.DI
 {
@@ -17,5 +18,9 @@ namespace ChineseRaffleApi.Services.DI
         Task<IEnumerable<GetGiftDto>> GetGiftsWithMaxPriceAsync();
         Task<IEnumerable<GetGiftDto>> GetGiftsWithMaxTicketsAsync();
         Task<IEnumerable<GetGiftWithBuyersDto>> GetGiftsWithBuyersAsync();
+        Task<IEnumerable<GetGiftDto>> GetSortedGiftsByPriceAsync();
+        Task<IEnumerable<GetGiftDto>> GetSortedGiftsByCategoryAsync();
+
+
     }
 }

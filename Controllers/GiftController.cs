@@ -2,6 +2,7 @@
 using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Services;
 using ChineseRaffleApi.Services.DI;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Drawing;
@@ -36,7 +37,37 @@ namespace ChineseRaffleApi.Controllers
             var gifts = await _giftService.GetAllGiftsAsync();
             return Ok(gifts);
         }
+        [HttpGet("sorted/price")]
+        public async Task<ActionResult<IEnumerable<GetGiftDto>>> GetGiftsSortedByPrice()
+        {
+            try
+            {
+                var gifts = await _giftService.GetSortedGiftsByPriceAsync();
+                return Ok(gifts);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = $"Error fetching gifts sorted by price: {ex.Message}" });
+            }
+        }
 
+        [HttpGet("sorted/category")]
+        public async Task<ActionResult<IEnumerable<GetGiftDto>>> GetGiftsSortedByCategory()
+        {
+            try
+            {
+                var gifts = await _giftService.GetSortedGiftsByCategoryAsync();
+                return Ok(gifts);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = $"Error fetching gifts sorted by category: {ex.Message}" });
+            }
+        }
+
+
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<Gift>> AddGift([FromBody] AddGiftDto gift)
         {
@@ -54,8 +85,8 @@ namespace ChineseRaffleApi.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        }
-
+          }
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateGift(int id, [FromBody] UpdateGiftDto gift)
         {
@@ -75,6 +106,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteGift(int id)
         {
@@ -93,6 +125,8 @@ namespace ChineseRaffleApi.Controllers
             var exists = await _giftService.GiftExistsAsync(title);
             return Ok(exists);
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpGet("donor/{name}")]
         public async Task<ActionResult<IEnumerable<Gift>>> GetGiftsByDonorName(string name)
         {
@@ -106,6 +140,7 @@ namespace ChineseRaffleApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpGet("title/{title}")]
         public async Task<ActionResult<IEnumerable<Gift>>> GetGiftsByTitle(string title)
         {
@@ -119,6 +154,7 @@ namespace ChineseRaffleApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet("with-tickets")]
         public async Task<ActionResult<IEnumerable<GetGiftWithTicketsDto>>> GetGiftsWithTickets()
         {
@@ -143,6 +179,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet("max-tickets")]
         public async Task<IActionResult> GetGiftsWithMaxTickets()
         {
@@ -160,6 +197,8 @@ namespace ChineseRaffleApi.Controllers
                 return StatusCode(500, "אירעה שגיאה בעת שליפת מתנות לפי מספר כרטיסים");
             }
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpGet("with-buyers")]
         public async Task<IActionResult> GetGiftsWithBuyers()
         {

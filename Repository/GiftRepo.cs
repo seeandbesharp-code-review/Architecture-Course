@@ -2,6 +2,7 @@
 using ChineseRaffleApi.Dto;
 using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Repository.DI;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChineseRaffleApi.Repository
@@ -139,6 +140,20 @@ namespace ChineseRaffleApi.Repository
         //          .ThenInclude(t => t.User)
         //        .ToListAsync();
         //}
+        public async Task<IEnumerable<Gift>> GetSortedGiftsByPriceAsync()
+        {
+            return await _context.Gifts
+                .Include(g => g.Donor)
+                .OrderBy(g => g.TicketPrice)
+                .ToListAsync();
+        }
+        public async Task<IEnumerable<Gift>> GetSortedGiftsByCategoryAsync()
+        {
+            return await _context.Gifts
+                .Include(g => g.Donor)
+                .OrderBy(g => g.CategoryId)
+                .ToListAsync();
+        }
     }
 }
 
