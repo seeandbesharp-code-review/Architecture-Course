@@ -17,14 +17,13 @@ namespace ChineseRaffleApi.Repository
         }
         public async Task<Gift?> GetGiftByIdAsync(int id)
         {
-            return await _context.Gifts.FirstOrDefaultAsync(g => g.Id == id);
-                                        
+            return await _context.Gifts.Include(g => g.Donor).FirstOrDefaultAsync(g => g.Id == id);
+
         }
 
         public async Task<IEnumerable<Gift>> GetAllGiftsAsync()
         {
-            return await _context.Gifts.ToListAsync();
-                                        
+            return await _context.Gifts.Include(g => g.Donor).ToListAsync();
         }
 
         public async Task AddGiftAsync(Gift gift)
@@ -78,7 +77,7 @@ namespace ChineseRaffleApi.Repository
             {
                 _context.Gifts.Remove(gift);
                 await _context.SaveChangesAsync();
-                return true; 
+                return true;
             }
             return false;
         }
@@ -87,9 +86,11 @@ namespace ChineseRaffleApi.Repository
         {
             return await _context.Gifts.AnyAsync(g => g.Title == title);
         }
-        public async Task<IEnumerable<Gift>> GetGiftByTitleAsync(string title)
+        public async Task<Gift?> GetGiftByTitleAsync(string title)
         {
-            return await _context.Gifts.Where(gift => gift.Title.Contains(title)).ToListAsync();
+            return await _context.Gifts
+                .Include(g => g.Donor)
+                .FirstOrDefaultAsync(gift => gift.Title.Contains(title));
         }
         public async Task<IEnumerable<Gift>> GetGiftByDonorNameAsync(string name)
         {
@@ -100,11 +101,44 @@ namespace ChineseRaffleApi.Repository
 
             return await _context.Gifts
                 .Include(g => g.Donor)
-                .Include(g => g.Category)
-                .Include(g => g.Winner)
                 .Where(g => g.Donor != null && EF.Functions.Like(g.Donor.Name, $"%{trimmed}%"))
                 .ToListAsync();
         }
+        public async Task<IEnumerable<Gift>> GetGiftsWithTicketsAsync()
+        {
+            return await _context.Gifts
+                .Include(g => g.TicketList)
+                  .ThenInclude(t => t.User)
+                .ToListAsync();
+        }
+        public async Task<IEnumerable<Gift>> GetGiftsWithMaxPriceAsync()
+        {
+            var maxPrice = await _context.Gifts.MaxAsync(g => g.TicketPrice);
 
+            return await _context.Gifts
+                .Include(g => g.Donor)
+                .Where(g => g.TicketPrice == maxPrice)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Gift>> GetGiftsWithMaxTicketsAsync()
+        {
+            var maxTickets = await _context.Gifts
+                .MaxAsync(g => g.TicketList.Count());
+
+            return await _context.Gifts
+                .Include(g => g.Donor)
+                .Where(g => g.TicketList.Count() == maxTickets)
+                .ToListAsync();
+        }
+        //public async Task<IEnumerable<Gift>> GetAllGiftsWithBuyersAsync()
+        //{
+        //    return await _context.Gifts
+        //        .Include(g => g.Donor)
+        //        .Include(g => g.TicketList)
+        //          .ThenInclude(t => t.User)
+        //        .ToListAsync();
+        //}
     }
 }
+

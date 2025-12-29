@@ -31,5 +31,6 @@ namespace ChineseRaffleApi.Dto
         public string PhoneNumber { get; set; } = string.Empty;
         [Required, MaxLength(50), EmailAddress]
         public string Email { get; set; } = string.Empty;
+        public List<GetGiftDto> GiftList { get; set; } = new List<GetGiftDto>();
     }
 }

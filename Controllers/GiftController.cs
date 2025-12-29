@@ -119,5 +119,63 @@ namespace ChineseRaffleApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet("with-tickets")]
+        public async Task<ActionResult<IEnumerable<GetGiftWithTicketsDto>>> GetGiftsWithTickets()
+        {
+            var gifts = await _giftService.GetGiftsWithTicketsAsync();
+            return Ok(gifts);
+        }
+        [HttpGet("max-price")]
+        public async Task<IActionResult> GetGiftsWithMaxPrice()
+        {
+            try
+            {
+                var gifts = await _giftService.GetGiftsWithMaxPriceAsync();
+
+                if (gifts == null || !gifts.Any())
+                    return NotFound("לא נמצאו מתנות");
+
+                return Ok(gifts);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "אירעה שגיאה בעת שליפת מתנות לפי מחיר");
+            }
+        }
+
+        [HttpGet("max-tickets")]
+        public async Task<IActionResult> GetGiftsWithMaxTickets()
+        {
+            try
+            {
+                var gifts = await _giftService.GetGiftsWithMaxTicketsAsync();
+
+                if (gifts == null || !gifts.Any())
+                    return NotFound("לא נמצאו מתנות");
+
+                return Ok(gifts);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "אירעה שגיאה בעת שליפת מתנות לפי מספר כרטיסים");
+            }
+        }
+        [HttpGet("with-buyers")]
+        public async Task<IActionResult> GetGiftsWithBuyers()
+        {
+            try
+            {
+                var gifts = await _giftService.GetGiftsWithBuyersAsync();
+
+                if (gifts == null || !gifts.Any())
+                    return NotFound("לא נמצאו מתנות");
+
+                return Ok(gifts);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "אירעה שגיאה בעת שליפת מתנות עם הרוכשים");
+            }
+        }
     }
 }
