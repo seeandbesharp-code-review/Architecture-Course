@@ -68,7 +68,9 @@ namespace ChineseRaffleApi.Repository
 
         public async Task<IEnumerable<Donor>> GetDonorByNameAsync(string name)
         {
-            return await _context.Donors.Where(donor =>  donor.Name.Contains(name)).ToListAsync();  
+            return await _context.Donors.Where(donor => donor.Name.Contains(name))
+                .Include(donor => donor.GiftList)
+                .ToListAsync();  
         }
 
         public async Task<bool> UpdateDonorAsync(int id, Donor updatedDonor)

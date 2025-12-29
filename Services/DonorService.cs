@@ -1,17 +1,22 @@
-﻿using ChineseRaffleApi.Dto;
+﻿using AutoMapper;
+using ChineseRaffleApi.Dto;
 using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Repository;
 using ChineseRaffleApi.Repository.DI;
 using ChineseRaffleApi.Services.DI;
+using System.Drawing;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ChineseRaffleApi.Services
 {
     public class DonorService:IDonorService
     {
         private readonly IDonorRepo  _donorRepo;
-        public DonorService(IDonorRepo donorRepo)
+        private readonly IMapper _mapper;
+        public DonorService(IDonorRepo donorRepo , IMapper mapper)
         { 
             _donorRepo = donorRepo;
+            _mapper = mapper;
         }
 
         public async Task<int> AddDonorAsync(AddDonorDto donor)
@@ -36,26 +41,33 @@ namespace ChineseRaffleApi.Services
             return await _donorRepo.DonorExistsAsync(name);
         }
 
-        public async Task<IEnumerable<Donor>> GetAllDonorsAsync()
+        public async Task<IEnumerable<GetDonorDto>> GetAllDonorsAsync()
         {
-            return await _donorRepo.GetAllDonorsAsync();
+            var donors =  await _donorRepo.GetAllDonorsAsync();
+            return _mapper.Map<List<GetDonorDto>>(donors);
         }
 
-        public async Task<Donor?> GetDonorByIdAsync(int id)
+        public async Task<GetDonorDto?> GetDonorByIdAsync(int id)
         {
-            return await _donorRepo.GetDonorByIdAsync(id);
+            var donor = await _donorRepo.GetDonorByIdAsync(id);
+            return _mapper.Map<GetDonorDto>(donor);
         }
-        public async Task<IEnumerable<Donor>> GetDonorByNameAsync(string name)
+        public async Task<IEnumerable<GetDonorDto>> GetDonorByNameAsync(string name)
         {
-            return await _donorRepo.GetDonorByNameAsync(name);
+            var donors = await _donorRepo.GetDonorByNameAsync(name);
+            return _mapper.Map<List<GetDonorDto>>(donors);
+
         }
-        public async Task<IEnumerable<Donor>> GetDonorByEmailAsync(string email)
+        public async Task<IEnumerable<GetDonorDto>> GetDonorByEmailAsync(string email)
         {
-            return await _donorRepo.GetDonorByEmailAsync(email);
+            var donors = await _donorRepo.GetDonorByEmailAsync(email);
+            return _mapper.Map<List<GetDonorDto>>(donors);
+
         }
-        public async Task<Donor?> GetDonorByGiftAsync(int giftId)
+        public async Task<GetDonorDto?> GetDonorByGiftAsync(int giftId)
         {
-            return await _donorRepo.GetDonorByGiftAsync(giftId);
+            var donors = await _donorRepo.GetDonorByGiftAsync(giftId);
+            return _mapper.Map<GetDonorDto>(donors);
         }
 
         public async Task UpdateDonorAsync(int id, UpdateDonorDto donor)

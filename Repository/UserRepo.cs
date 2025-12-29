@@ -87,5 +87,9 @@ namespace ChineseRaffleApi.Repository
         {
             return await _context.Users.AnyAsync(u => u.UserName == username);
         }
+        public async Task<User?> GetUserByUserNameAsync(string username)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.UserName == username);
+        }   
     }
 }

@@ -13,7 +13,7 @@ namespace ChineseRaffleApi.Repository
         {
             _context = context;
         }
-        public async Task<Ticket> GetTicketByIdAsync(int id)
+        public async Task<Ticket?> GetTicketByIdAsync(int id)
         {
             return await _context.Tickets.Include(t => t.Gift).Include(t => t.User).FirstOrDefaultAsync(t => t.Id == id);
         }
@@ -23,10 +23,11 @@ namespace ChineseRaffleApi.Repository
             return await _context.Tickets.Include(t => t.Gift).Include(t => t.User).ToListAsync();
         }
 
-        public async Task AddTicketAsync(Ticket ticket)
+        public async Task<int?> AddTicketAsync(Ticket ticket)
         {
             await _context.Tickets.AddAsync(ticket);
             await _context.SaveChangesAsync();
+            return ticket.Id;   
         }
 
         public async Task UpdateTicketAsync(Ticket ticket)

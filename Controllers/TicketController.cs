@@ -1,4 +1,5 @@
 ﻿using ChineseRaffleApi.Controllers.DI;
+using ChineseRaffleApi.Dto;
 using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +8,7 @@ namespace ChineseRaffleApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TicketController : ControllerBase, ITicketController
+    public class TicketController : ControllerBase
     {
         private readonly ITicketService _ticketService;
 
@@ -17,7 +18,7 @@ namespace ChineseRaffleApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Ticket>> GetTicket(int id)
+        public async Task<ActionResult<GetTicketDto>> GetTicket(int id)
         {
             var ticket = await _ticketService.GetTicketByIdAsync(id);
             if (ticket == null) return NotFound();
@@ -25,17 +26,17 @@ namespace ChineseRaffleApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ticket>>> GetTickets()
+        public async Task<ActionResult<IEnumerable<GetTicketDto>>> GetTickets()
         {
             var tickets = await _ticketService.GetAllTicketsAsync();
             return Ok(tickets);
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateTicket(Ticket ticket)
+        public async Task<ActionResult> CreateTicket(AddTicketDto ticket)
         {
-            await _ticketService.AddTicketAsync(ticket);
-            return CreatedAtAction(nameof(GetTicket), new { id = ticket.Id }, ticket);
+            var Id = await _ticketService.AddTicketAsync(ticket);
+            return CreatedAtAction(nameof(GetTicket), new { id = Id }, ticket);
         }
 
         [HttpPut("{id}")]

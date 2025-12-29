@@ -1,31 +1,40 @@
-﻿using ChineseRaffleApi.Models;
+﻿using AutoMapper;
+using ChineseRaffleApi.Dto;
+using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Repository.DI;
 using ChineseRaffleApi.Services.DI;
+using System.Net.Sockets;
 
 namespace ChineseRaffleApi.Services
 {
     public class TicketService: ITicketService
     {
         private readonly ITicketRepo _ticketRepo;
+        private readonly IMapper _mapper;
 
-        public TicketService(ITicketRepo ticketRepo)
+
+        public TicketService(ITicketRepo ticketRepo, IMapper mapper)
         {
             _ticketRepo = ticketRepo;
+            _mapper = mapper;
         }
 
-        public async Task<Ticket> GetTicketByIdAsync(int id)
+        public async Task<GetTicketDto> GetTicketByIdAsync(int id)
         {
-            return await _ticketRepo.GetTicketByIdAsync(id);
+            var ticket = await _ticketRepo.GetTicketByIdAsync(id);
+            return _mapper.Map<GetTicketDto>(ticket);
         }
 
-        public async Task<IEnumerable<Ticket>> GetAllTicketsAsync()
+        public async Task<IEnumerable<GetTicketDto>> GetAllTicketsAsync()
         {
-            return await _ticketRepo.GetAllTicketsAsync();
+            var tickets = await _ticketRepo.GetAllTicketsAsync();
+            return _mapper.Map<IEnumerable<GetTicketDto>>(tickets);
         }
 
-        public async Task AddTicketAsync(Ticket ticket)
+        public async Task<int?> AddTicketAsync(AddTicketDto ticket)
         {
-            await _ticketRepo.AddTicketAsync(ticket);
+            var MapTickets = _mapper.Map<Ticket>(ticket);
+            return await _ticketRepo.AddTicketAsync(MapTickets);
         }
 
         public async Task UpdateTicketAsync(Ticket ticket)

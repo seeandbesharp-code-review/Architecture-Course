@@ -1,4 +1,5 @@
-﻿using ChineseRaffleApi.Dto;
+﻿using AutoMapper;
+using ChineseRaffleApi.Dto;
 using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Repository;
 using ChineseRaffleApi.Repository.DI;
@@ -9,20 +10,25 @@ namespace ChineseRaffleApi.Services
     public class GiftService : IGiftService
     {
         private readonly IGiftRepo _giftRepo;
+        private readonly IMapper _mapper;
 
-        public GiftService(IGiftRepo giftRepo)
+
+        public GiftService(IGiftRepo giftRepo, IMapper mapper)
         {
             _giftRepo = giftRepo;
+            _mapper = mapper;
         }
 
-        public async Task<Gift?> GetGiftByIdAsync(int id)
+        public async Task<GetGiftDto?> GetGiftByIdAsync(int id)
         {
-            return await _giftRepo.GetGiftByIdAsync(id);
+            var gift =  await _giftRepo.GetGiftByIdAsync(id);
+            return _mapper.Map<GetGiftDto>(gift);
         }
 
-        public async Task<IEnumerable<Gift>> GetAllGiftsAsync()
+        public async Task<IEnumerable<GetGiftDto>> GetAllGiftsAsync()
         {
-            return await _giftRepo.GetAllGiftsAsync();
+            var gifts = await _giftRepo.GetAllGiftsAsync();
+            return _mapper.Map<List<GetGiftDto>>(gifts);
         }
 
         public async Task<int> AddGiftAsync(AddGiftDto gift)
@@ -95,14 +101,36 @@ namespace ChineseRaffleApi.Services
             return await _giftRepo.GiftExistsAsync(title);
         }
 
-        public Task<IEnumerable<Gift>> GetGiftByDonorNameAsync(string name)
+        public async Task<IEnumerable<GetGiftDto>> GetGiftByDonorNameAsync(string name)
         {
-            return _giftRepo.GetGiftByDonorNameAsync(name);
+            var gifts = await _giftRepo.GetGiftByDonorNameAsync(name);
+            return _mapper.Map<List<GetGiftDto>>(gifts);
         }
 
-        public Task<IEnumerable<Gift>> GetGiftByTitleAsync(string title)
+        public async Task<GetGiftDto?> GetGiftByTitleAsync(string title)
         {
-            return _giftRepo.GetGiftByTitleAsync(title);
+            var gift = await _giftRepo.GetGiftByTitleAsync(title);
+            return _mapper.Map<GetGiftDto>(gift);
+        }
+        public async Task<IEnumerable<GetGiftWithTicketsDto>> GetGiftsWithTicketsAsync()
+        {
+            var gifts = await _giftRepo.GetGiftsWithTicketsAsync();
+            return _mapper.Map<IEnumerable<GetGiftWithTicketsDto>>(gifts);
+        }
+        public async Task<IEnumerable<GetGiftDto>> GetGiftsWithMaxPriceAsync()
+        {
+            var gifts = await _giftRepo.GetGiftsWithMaxPriceAsync();
+            return _mapper.Map<IEnumerable<GetGiftDto>>(gifts);
+        }
+        public async Task<IEnumerable<GetGiftDto>> GetGiftsWithMaxTicketsAsync()
+        {
+            var gifts = await _giftRepo.GetGiftsWithMaxTicketsAsync();
+            return _mapper.Map<IEnumerable<GetGiftDto>>(gifts);
+        }
+        public async Task<IEnumerable<GetGiftWithBuyersDto>> GetGiftsWithBuyersAsync()
+        {
+            var gifts = await _giftRepo.GetGiftsWithTicketsAsync();
+            return _mapper.Map<IEnumerable<GetGiftWithBuyersDto>>(gifts);
         }
     }
 }

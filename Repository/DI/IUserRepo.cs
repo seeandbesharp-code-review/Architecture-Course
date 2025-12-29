@@ -12,6 +12,7 @@ namespace ChineseRaffleApi.Repository.DI
         Task<bool> UpdateUserAsync(int id, User user);
         Task DeleteUserAsync(int id);
         Task<bool> UserExistsAsync(string username);
+        Task<User?> GetUserByUserNameAsync(string username);
 
     }
 }

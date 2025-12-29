@@ -11,6 +11,11 @@ namespace ChineseRaffleApi.Repository.DI
         Task<bool> DeleteGiftAsync(int id);
         Task<bool> GiftExistsAsync(string title);
         Task<IEnumerable<Gift>> GetGiftByDonorNameAsync(string name);
-        Task<IEnumerable<Gift>> GetGiftByTitleAsync(string title);
+        Task<Gift?> GetGiftByTitleAsync(string title);
+        Task<IEnumerable<Gift>> GetGiftsWithTicketsAsync();
+        Task<IEnumerable<Gift>> GetGiftsWithMaxPriceAsync();
+        Task<IEnumerable<Gift>> GetGiftsWithMaxTicketsAsync();
+
+
     }
 }

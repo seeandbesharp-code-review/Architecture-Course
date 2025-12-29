@@ -23,6 +23,6 @@ namespace ChineseRaffleApi.Models
         public string? Image { get; set; }
         public int? WinnerId { get; set; }
         public User? Winner { get; set; }
-        public ICollection<Ticket>? TicketList { get; set; }
+        public IEnumerable<Ticket> TicketList { get; set; } = new List<Ticket>();
     }
 }

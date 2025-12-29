@@ -28,13 +28,32 @@ namespace ChineseRaffleApi.Dto
     }
     public class GetGiftDto
     {
+        [Key]
+        public int Id { get; set; }
+        [MaxLength(100)]
         [Required]
         public string Title { get; set; } = string.Empty;
-        public string CategoryName { get; set; } = string.Empty;
         [Required]
-        public string DonorName { get; set; } = string.Empty;
         public int TicketPrice { get; set; }
         public string? Image { get; set; }
-        public string? WinnerName { get; set; }
+    }
+    public class  GetGiftWithTicketsDto
+    {
+        [Key]
+        public int Id { get; set; }
+        [MaxLength(100)]
+        [Required]
+        public string Title { get; set; } = string.Empty;
+        public IEnumerable<GetTicketDto> Tickets { get; set; } = new List<GetTicketDto>();
+        public int QuantitySold { get; set; }
+    }
+    public class GetGiftWithBuyersDto
+    {
+        [Key]
+        public int Id { get; set; }
+        [MaxLength(100)]
+        [Required]
+        public string Title { get; set; } = string.Empty;
+        public IEnumerable<GetUserDto> Buyers { get; set; } = new List<GetUserDto>();
     }
 }

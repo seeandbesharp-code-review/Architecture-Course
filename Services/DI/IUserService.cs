@@ -12,5 +12,6 @@ namespace ChineseRaffleApi.Services.DI
         Task<User?> GetUserByIdAsync(int id);
         Task UpdateUserAsync(int id, UpdateUserDto user);
         Task<bool> UserExistsAsync(string username);
+        Task<LoginResponseDto?> AuthenticateAsync(string userName, string password);
     }
 }

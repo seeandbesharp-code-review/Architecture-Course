@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using ChineseRaffleApi.Models;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ChineseRaffleApi.Dto
@@ -24,6 +25,17 @@ namespace ChineseRaffleApi.Dto
         [Phone]
         public string? PhoneNumber { get; set; }
     }
-
-
+    public class GetUserDto
+    {
+        [Key]
+        public int Id { get; set; }
+        [Required, MaxLength(20)]
+        public string UserName { get; set; } = string.Empty;
+        [Required, EmailAddress]
+        public string Email { get; set; } = string.Empty;
+        [Required, Phone]
+        public string PhoneNumber { get; set; } = string.Empty;
+        public Role Role { get; set; } = Role.User;
+    }
+  
 }
