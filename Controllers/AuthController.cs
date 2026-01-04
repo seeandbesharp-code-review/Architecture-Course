@@ -31,6 +31,7 @@ namespace ChineseRaffleApi.Controllers
         {
             if (string.IsNullOrWhiteSpace(loginDto.UserName) || string.IsNullOrWhiteSpace(loginDto.Password))
             {
+                _logger.LogWarning("Login attempt with missing credentials.");
                 return BadRequest(new { message = "userName and password are required." });
             }
 
@@ -38,6 +39,7 @@ namespace ChineseRaffleApi.Controllers
 
             if (result == null)
             {
+                _logger.LogWarning("Invalid login attempt for user: {UserName}", loginDto.UserName);
                 return Unauthorized(new { message = "Invalid userName or password." });
             }
 
@@ -56,6 +58,12 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (ArgumentException ex)
             {
+                _logger.LogWarning("Registration failed: {Message}", ex.Message);
+                return BadRequest(new { message = ex.Message });
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError("An error occurred during registration: {Message}", ex.Message);
                 return BadRequest(new { message = ex.Message });
             }
         }

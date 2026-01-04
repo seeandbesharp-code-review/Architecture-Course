@@ -14,31 +14,52 @@ namespace ChineseRaffleApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, ILogger<UserController> logger)
         {
             _userService = userService;
+            _logger = logger;
         }
 
         [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            var users = await _userService.GetAllUsersAsync();
-            return Ok(users);
+            try
+            {
+                var users = await _userService.GetAllUsersAsync();
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving all users");
+                return StatusCode(500, "An error occurred while retrieving users.");
+            }
         }
 
         [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
-            var user = await _userService.GetUserByIdAsync(id);
-            if (user == null)
+            try
             {
-                return NotFound();
+                var user = await _userService.GetUserByIdAsync(id);
+                if (user == null)
+                {
+                    return NotFound();
+                }
+                return Ok(user);
             }
-            return Ok(user);
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving user with id {id}");
+                return StatusCode(500, "An error occurred while retrieving the user.");
+            }
         }
+
+
+
 
         [HttpPost]
         public async Task<IActionResult> AddUser([FromBody] AddUserDto user)
@@ -52,6 +73,7 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error adding new user");
                 return BadRequest(ex.Message);
             }
         }
@@ -72,10 +94,12 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (FormatException ex)
             {
+                _logger.LogError(ex, "Invalid user ID format.");
                 return BadRequest($"Invalid user ID format: {ex.Message}");
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, $"Error updating user with id {id}");
                 return BadRequest(ex.Message);
             }
         }
@@ -96,10 +120,12 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (FormatException ex)
             {
+                _logger.LogError(ex, "Invalid user ID format.");
                 return BadRequest($"Invalid user ID format: {ex.Message}");
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, $"Error deleting user with id {id}");  
                 return BadRequest(ex.Message);
             }
         }

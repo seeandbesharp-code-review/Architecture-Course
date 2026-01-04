@@ -13,10 +13,12 @@ namespace ChineseRaffleApi.Controllers
     public class TicketController : ControllerBase
     {
         private readonly ITicketService _ticketService;
+        private readonly ILogger<TicketController> _logger;
 
-        public TicketController(ITicketService ticketService)
+        public TicketController(ITicketService ticketService, ILogger<TicketController> logger)
         {
             _ticketService = ticketService;
+            _logger = logger;
         }
         [Authorize]
         [HttpGet("myTickets")]
@@ -37,10 +39,12 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (FormatException ex)
             {
+                _logger.LogError(ex, "Invalid user ID format.");
                 return BadRequest($"Invalid user ID format: {ex.Message}");
             }
             catch (Exception ex)
             {
+                _logger.LogError($"{ex.Message}", ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -49,9 +53,18 @@ namespace ChineseRaffleApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GetTicketDto>>> GetTickets()
         {
-            var tickets = await _ticketService.GetAllTicketsAsync();
-            return Ok(tickets);
+            try
+            {
+                var tickets = await _ticketService.GetAllTicketsAsync();
+                return Ok(tickets);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while retrieving tickets.");
+                return StatusCode(500, "An unexpected error occurred while retrieving tickets.");
+            }
         }
+
 
         [Authorize]
         [HttpPost]
@@ -69,10 +82,12 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (FormatException ex)
             {
+                _logger.LogError(ex, "Invalid user ID format.");
                 return BadRequest($"Invalid user ID format: {ex.Message}");
             }
             catch (Exception ex)
             {
+                _logger.LogError($"{ex.Message}", ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }

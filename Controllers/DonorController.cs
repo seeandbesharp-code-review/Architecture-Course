@@ -1,8 +1,5 @@
-﻿using Azure.Messaging;
-using ChineseRaffleApi.Controllers.DI;
-using ChineseRaffleApi.Dto;
+﻿using ChineseRaffleApi.Dto;
 using ChineseRaffleApi.Models;
-using ChineseRaffleApi.Services;
 using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,35 +12,60 @@ namespace ChineseRaffleApi.Controllers
     public class DonorController : ControllerBase
     {
         private readonly IDonorService _donorService;
+        private readonly ILogger<DonorController> _logger;
 
-        public DonorController(IDonorService donorService)
+       public DonorController(IDonorService donorService, ILogger<DonorController> logger)
         {
             _donorService = donorService;
+            _logger = logger;
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Donor>> GetDonor(int id)
+        public async Task<ActionResult<GetDonorDto>> GetDonor(int id)
         {
-            var donor = await _donorService.GetDonorByIdAsync(id);
-            if (donor == null)
+            try
             {
-                return NotFound();
+                var donor = await _donorService.GetDonorByIdAsync(id);
+                if (donor == null)
+                    return NotFound($"Donor with id {id} not found");
+
+                return Ok(donor);
             }
-            return Ok(donor);
+            catch (Exception ex)
+            {
+               _logger.LogError(ex, $"Error retrieving donor with id {id}");
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Donor>>> GetAllDonors()
+        public async Task<ActionResult<IEnumerable<GetDonorDto>>> GetAllDonors()
         {
-            var donors = await _donorService.GetAllDonorsAsync();
-            return Ok(donors);
+            try
+            {
+                var donors = await _donorService.GetAllDonorsAsync();
+                return Ok(donors);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving all donors");
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPost]
-        public async Task<ActionResult<Donor>> AddDonor([FromBody] AddDonorDto donor)
+        public async Task<ActionResult> AddDonor([FromBody] AddDonorDto donor)
         {
-            var Id = await _donorService.AddDonorAsync(donor);
-            return CreatedAtAction(nameof(GetDonor), new { id = Id }, donor);
+            try
+            {
+                var id = await _donorService.AddDonorAsync(donor);
+                return CreatedAtAction(nameof(GetDonor), new { id }, donor);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error adding new donor");
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPut("{id}")]
@@ -54,50 +76,97 @@ namespace ChineseRaffleApi.Controllers
                 await _donorService.UpdateDonorAsync(id, donor);
                 return NoContent();
             }
+            catch (KeyNotFoundException ex)
+            {
+                _logger.LogWarning(ex, $"Donor with id {id} not found for update");
+                return NotFound(ex.Message);
+            }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex, $"Error updating donor with id {id}");
+                return StatusCode(500, ex.Message);
             }
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDonor(int id)
         {
-           
-            var isDeleted = await _donorService.DeleteDonorAsync(id);
-            if (isDeleted)
+            try
             {
-                return Ok($"donor id:{id} was deleted");
+                var deleted = await _donorService.DeleteDonorAsync(id);
+                if (!deleted)
+                    return NotFound($"Donor id {id} not found");
+
+                return Ok($"Donor id {id} was deleted");
             }
-            return NotFound($"Donor id:{id} not found");
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error deleting donor with id {id}");
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpGet("exists/{name}")]
         public async Task<ActionResult<bool>> DonorExists(string name)
         {
-            var exists = await _donorService.DonorExistsAsync(name);
-            return Ok(exists);
+            try
+            {
+                var exists = await _donorService.DonorExistsAsync(name);
+                return Ok(exists);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error checking existence of donor with name {name}");
+                return StatusCode(500, ex.Message);
+            }
         }
-
 
         [HttpGet("byName/{name}")]
-        public async Task<ActionResult<IEnumerable<Donor>>> GetDonorByName(string name)
+        public async Task<ActionResult<IEnumerable<GetDonorDto>>> GetDonorByName(string name)
         {
-            var donors = await _donorService.GetDonorByNameAsync(name);
-            return Ok(donors);       
+            try
+            {
+                var donors = await _donorService.GetDonorByNameAsync(name);
+                return Ok(donors);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving donors with name {name}");
+                return StatusCode(500, ex.Message);
+            }
         }
+
         [HttpGet("byEmail/{email}")]
-        public async Task<ActionResult<IEnumerable<Donor>>> GetDonorByEmail(string email)
+        public async Task<ActionResult<IEnumerable<GetDonorDto>>> GetDonorByEmail(string email)
         {
-            var donors = await _donorService.GetDonorByEmailAsync(email);
-            return Ok(donors);
+            try
+            {
+                var donors = await _donorService.GetDonorByEmailAsync(email);
+                return Ok(donors);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving donors with email {email}");
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpGet("byGift/{giftId}")]
-        public async Task<ActionResult<Donor>> GetDonorByGift(int giftId)
+        public async Task<ActionResult<GetDonorDto>> GetDonorByGift(int giftId)
         {
-            var donor = await _donorService.GetDonorByGiftAsync(giftId);
-            return Ok(donor);
+            try
+            {
+                var donor = await _donorService.GetDonorByGiftAsync(giftId);
+                if (donor == null)
+                    return NotFound($"No donor found for gift id {giftId}");
+
+                return Ok(donor);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving donor for gift id {giftId}");
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }
