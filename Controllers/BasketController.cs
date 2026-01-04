@@ -13,12 +13,14 @@ namespace ChineseRaffleApi.Controllers
     public class BasketController : ControllerBase
     {
         private readonly IBasketService _basketService;
+        private readonly ILogger<BasketController> _logger;
 
-        public BasketController(IBasketService basketService)
+        public BasketController(IBasketService basketService, ILogger<BasketController> logger)
         {
             _basketService = basketService;
+            _logger = logger;
         }
-        
+
         //[Authorize(Roles = "Admin")]
         //[HttpGet]
         //public async Task<ActionResult<IEnumerable<Basket>>> GetAllBaskets()
@@ -43,14 +45,17 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (FormatException ex)
             {
+                _logger.LogError(ex, "Invalid user ID format.");
                 return BadRequest($"Invalid user ID format: {ex.Message}");
             }
             catch (UnauthorizedAccessException ex)
             {
+                _logger.LogError($"{ex.Message}");
                 return Unauthorized(ex.Message);
             }
             catch (Exception ex)
             {
+                _logger.LogError($"{ex.Message}", ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -74,9 +79,29 @@ namespace ChineseRaffleApi.Controllers
         [HttpPost]
         public async Task<ActionResult> AddBasket(AddBasketDto basket)
         {
-            var Id = await _basketService.AddBasketAsync(basket);
-            return CreatedAtAction(nameof(GetMyBasket), new { id = Id }, basket);
+            try
+            {
+                int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value
+                                           ?? throw new Exception("User ID not found in token"));
+
+                if (basket.UserId != userId)
+                    return Forbid("You are not allowed to add a basket for another user.");
+
+                var Id = await _basketService.AddBasketAsync(basket);
+                return CreatedAtAction(nameof(GetMyBasket), new { id = Id }, basket);
+            }
+            catch (FormatException ex)
+            {
+                _logger.LogWarning(ex, "Invalid UserId format in token.");
+                return BadRequest("Invalid user ID in token.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error while adding a basket.");
+                return StatusCode(500, "An unexpected error occurred while adding the basket.");
+            }
         }
+
 
         [Authorize]
         [HttpPut("{id}")]
@@ -99,10 +124,12 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (FormatException ex)
             {
+                _logger.LogError(ex, "Invalid user ID format.");
                 return BadRequest($"Invalid user ID format: {ex.Message}");
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error while updating basket.");
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
 
@@ -128,10 +155,12 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (FormatException ex)
             {
+                _logger.LogError(ex, "Invalid user ID format.");
                 return BadRequest($"Invalid user ID format: {ex.Message}");
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error while deleting basket.");
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }

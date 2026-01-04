@@ -75,28 +75,16 @@ namespace ChineseRaffleApi.Repository
 
         public async Task<bool> UpdateDonorAsync(int id, Donor updatedDonor)
         {
-            try
-            {
-                var existingDonor = await _context.Donors.FindAsync(id);
-                if (existingDonor == null)
-                {
-                    return false;
-                }
+            var existingDonor = await _context.Donors.FindAsync(id);
+            if (existingDonor == null)
+                return false;
 
-                existingDonor.Name = updatedDonor.Name;
-                existingDonor.Email = existingDonor.Email;
-                existingDonor.PhoneNumber = existingDonor.PhoneNumber;
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            catch (DbUpdateException)
-            {
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            existingDonor.Name = updatedDonor.Name;
+            existingDonor.Email = updatedDonor.Email;
+            existingDonor.PhoneNumber = updatedDonor.PhoneNumber;
+
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }

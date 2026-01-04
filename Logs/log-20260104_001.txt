@@ -1,0 +1,3 @@
+2026-01-04 17:10:28.123 +02:00 [WRN] Login attempt failed: Invalid password for userName hadasa
+2026-01-04 17:13:24.742 +02:00 [INF] Generated JWT token for user 9
+2026-01-04 17:13:24.758 +02:00 [INF] User 9 authenticated successfully

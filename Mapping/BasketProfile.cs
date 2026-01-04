@@ -6,7 +6,7 @@ namespace ChineseRaffleApi.Mapping
 {
     public class BasketProfile : Profile
     {
-        BasketProfile()
+        public BasketProfile()
         {
             CreateMap<AddBasketDto, Basket>();
             CreateMap<Basket, GetBasketDto>();

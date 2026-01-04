@@ -1,6 +1,6 @@
 ﻿using ChineseRaffleApi.Models;
+//using Microsoft.SqlServer.Management.Smo;
 using System.ComponentModel.DataAnnotations;
-using System.Security.Claims;
 
 namespace ChineseRaffleApi.Dto
 {

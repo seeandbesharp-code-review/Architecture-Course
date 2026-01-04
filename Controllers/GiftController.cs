@@ -5,6 +5,7 @@ using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 using System.Drawing;
 
 namespace ChineseRaffleApi.Controllers
@@ -14,29 +15,47 @@ namespace ChineseRaffleApi.Controllers
     public class GiftController : ControllerBase
     {
         private readonly IGiftService _giftService;
+        private readonly ILogger<GiftController> _logger;
 
-        public GiftController(IGiftService giftService)
+        public GiftController(IGiftService giftService, ILogger<GiftController> logger)
         {
             _giftService = giftService;
+            _logger = logger;
         }
-
         [HttpGet("{id}")]
         public async Task<ActionResult<Gift>> GetGift(int id)
         {
-            var gift = await _giftService.GetGiftByIdAsync(id);
-            if (gift == null)
+            try
             {
-                return NotFound();
+                var gift = await _giftService.GetGiftByIdAsync(id);
+                if (gift == null)
+                {
+                    return NotFound();
+                }
+                return Ok(gift);
             }
-            return Ok(gift);
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while fetching gift with id {GiftId}", id);
+                return StatusCode(500, "An unexpected error occurred while fetching the gift.");
+            }
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Gift>>> GetAllGifts()
         {
-            var gifts = await _giftService.GetAllGiftsAsync();
-            return Ok(gifts);
+            try
+            {
+                var gifts = await _giftService.GetAllGiftsAsync();
+                return Ok(gifts);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while fetching all gifts");
+                return StatusCode(500, new { message = "An error occurred while retrieving gifts." });
+            }
         }
+
         [HttpGet("sorted/price")]
         public async Task<ActionResult<IEnumerable<GetGiftDto>>> GetGiftsSortedByPrice()
         {
@@ -47,6 +66,7 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error occurred while fetching gifts sorted by price");
                 return BadRequest(new { message = $"Error fetching gifts sorted by price: {ex.Message}" });
             }
         }
@@ -61,6 +81,7 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error occurred while fetching gifts sorted by category");
                 return BadRequest(new { message = $"Error fetching gifts sorted by category: {ex.Message}" });
             }
         }
@@ -83,6 +104,7 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error occurred while adding a new gift");
                 return BadRequest(ex.Message);
             }
           }
@@ -97,11 +119,12 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (ArgumentException ex)
             {
-                // Duplicate title (or business-rule) -> 409 Conflict
+                _logger.LogError(ex, "Error occurred while updating gift with id {GiftId}", id);
                 return Conflict(ex.Message);
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error occurred while updating gift with id {GiftId}", id);
                 return BadRequest(ex.Message);
             }
         }
@@ -110,21 +133,37 @@ namespace ChineseRaffleApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteGift(int id)
         {
-            var isDeleted = await _giftService.DeleteGiftAsync(id);
-            if (isDeleted)
+            try
             {
-                return Ok($"Gift id:{id} was deleted");
+                var isDeleted = await _giftService.DeleteGiftAsync(id);
+                if (isDeleted)
+                {
+                    return Ok($"Gift id:{id} was deleted");
+                }
+                return NotFound($"Gift id:{id} not found");
             }
-            return NotFound($"Gift id:{id} not found");
-
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while deleting gift with id {GiftId}", id);
+                return StatusCode(500, "An unexpected error occurred while deleting the gift.");
+            }
         }
 
-        [HttpGet("exists/{id}")]
+        [HttpGet("exists/{title}")]
         public async Task<ActionResult<bool>> GiftExists(string title)
         {
-            var exists = await _giftService.GiftExistsAsync(title);
-            return Ok(exists);
+            try
+            {
+                var exists = await _giftService.GiftExistsAsync(title);
+                return Ok(exists);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while checking if gift exists with title {Title}", title);
+                return StatusCode(500, "An unexpected error occurred while checking gift existence.");
+            }
         }
+
 
         [Authorize(Roles = "Admin")]
         [HttpGet("donor/{name}")]
@@ -137,6 +176,7 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error occurred while fetching gifts by donor name {DonorName}", name);
                 return BadRequest(ex.Message);
             }
         }
@@ -151,6 +191,7 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error occurred while fetching gifts by title {Title}", title);
                 return BadRequest(ex.Message);
             }
         }
@@ -158,9 +199,18 @@ namespace ChineseRaffleApi.Controllers
         [HttpGet("with-tickets")]
         public async Task<ActionResult<IEnumerable<GetGiftWithTicketsDto>>> GetGiftsWithTickets()
         {
-            var gifts = await _giftService.GetGiftsWithTicketsAsync();
-            return Ok(gifts);
+            try
+            {
+                var gifts = await _giftService.GetGiftsWithTicketsAsync();
+                return Ok(gifts);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while retrieving gifts with tickets.");
+                return StatusCode(500, "An unexpected error occurred while retrieving gifts with tickets.");
+            }
         }
+
         [HttpGet("max-price")]
         public async Task<IActionResult> GetGiftsWithMaxPrice()
         {
@@ -175,6 +225,7 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError($"{ex.Message}");
                 return StatusCode(500, "אירעה שגיאה בעת שליפת מתנות לפי מחיר");
             }
         }
@@ -194,6 +245,7 @@ namespace ChineseRaffleApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError($"{ex.Message}");
                 return StatusCode(500, "אירעה שגיאה בעת שליפת מתנות לפי מספר כרטיסים");
             }
         }

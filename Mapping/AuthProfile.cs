@@ -8,7 +8,8 @@ namespace ChineseRaffleApi.Mapping
     {
         public AuthProfile()
         {
-            CreateMap<GetUserDto, LoginRequestDto>();    
+            CreateMap<GetUserDto, LoginRequestDto>();
+            
         }
 
     }
