@@ -34,7 +34,6 @@ namespace ChineseRaffleApi.Controllers
                 _logger.LogWarning("Login attempt with missing credentials.");
                 return BadRequest(new { message = "userName and password are required." });
             }
-
             var result = await _userService.AuthenticateAsync(loginDto.UserName, loginDto.Password);
 
             if (result == null)
@@ -42,7 +41,6 @@ namespace ChineseRaffleApi.Controllers
                 _logger.LogWarning("Invalid login attempt for user: {UserName}", loginDto.UserName);
                 return Unauthorized(new { message = "Invalid userName or password." });
             }
-
             return Ok(result);
         }
 

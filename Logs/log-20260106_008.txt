@@ -1,0 +1,1 @@
+2026-01-06 23:56:11.130 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '06/01/2026 20:24:44', Current time (UTC): '06/01/2026 21:56:11'.
