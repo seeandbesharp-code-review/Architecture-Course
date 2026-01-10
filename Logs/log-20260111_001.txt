@@ -1,0 +1,4 @@
+2026-01-11 00:12:50.686 +02:00 [WRN] Login attempt failed: User not found for userName ייי
+2026-01-11 00:12:50.885 +02:00 [WRN] Invalid login attempt for user: ייי
+2026-01-11 00:13:18.721 +02:00 [WRN] Login attempt failed: User not found for userName חלמ
+2026-01-11 00:13:18.729 +02:00 [WRN] Invalid login attempt for user: חלמ

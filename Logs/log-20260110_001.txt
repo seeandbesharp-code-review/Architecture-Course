@@ -1,0 +1,23 @@
+2026-01-10 21:13:43.854 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:13:43'.
+2026-01-10 21:16:12.040 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:16:12'.
+2026-01-10 21:16:16.069 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:16:16'.
+2026-01-10 21:17:00.395 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:17:00'.
+2026-01-10 21:17:04.155 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:17:04'.
+2026-01-10 21:17:07.516 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:17:07'.
+2026-01-10 21:18:01.659 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:18:01'.
+2026-01-10 21:18:04.992 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:18:04'.
+2026-01-10 21:21:27.754 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:21:27'.
+2026-01-10 21:22:54.372 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:22:54'.
+2026-01-10 21:27:55.539 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:27:55'.
+2026-01-10 21:36:25.946 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:36:25'.
+2026-01-10 21:37:15.089 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:37:15'.
+2026-01-10 21:38:30.649 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:38:30'.
+2026-01-10 21:48:02.062 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:48:02'.
+2026-01-10 21:51:49.880 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '07/01/2026 17:36:55', Current time (UTC): '10/01/2026 19:51:49'.
+2026-01-10 21:51:57.434 +02:00 [INF] Generated JWT token for user 9
+2026-01-10 21:51:57.446 +02:00 [INF] User 9 authenticated successfully
+2026-01-10 21:58:21.051 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '10/01/2026 19:52:57', Current time (UTC): '10/01/2026 19:58:21'.
+2026-01-10 22:00:24.991 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '10/01/2026 19:52:57', Current time (UTC): '10/01/2026 20:00:24'.
+2026-01-10 22:00:35.329 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '10/01/2026 19:52:57', Current time (UTC): '10/01/2026 20:00:35'.
+2026-01-10 22:01:21.389 +02:00 [INF] Generated JWT token for user 9 {"SourceContext":"ChineseRaffleApi.Services.TokenService","ActionId":"6e60f24c-51ab-4a9b-ba87-42b8ff45c2bd","ActionName":"ChineseRaffleApi.Controllers.AuthController.Login (ChineseRaffleApi)","RequestId":"0HNIGGBTJ2KS7:00000003","RequestPath":"/api/Auth/login","ConnectionId":"0HNIGGBTJ2KS7"}
+2026-01-10 22:01:21.498 +02:00 [INF] User 9 authenticated successfully {"SourceContext":"ChineseRaffleApi.Services.UserService","ActionId":"6e60f24c-51ab-4a9b-ba87-42b8ff45c2bd","ActionName":"ChineseRaffleApi.Controllers.AuthController.Login (ChineseRaffleApi)","RequestId":"0HNIGGBTJ2KS7:00000003","RequestPath":"/api/Auth/login","ConnectionId":"0HNIGGBTJ2KS7"}

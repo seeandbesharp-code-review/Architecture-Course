@@ -23,7 +23,7 @@ namespace ChineseRaffleApi.Controllers
             _logger = logger;
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Gift>> GetGift(int id)
+        public async Task<ActionResult<GetGiftDto>> GetGift(int id)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace ChineseRaffleApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Gift>>> GetAllGifts()
+        public async Task<ActionResult<IEnumerable<GetGiftDto>>> GetAllGifts()
         {
             try
             {
@@ -89,46 +89,84 @@ namespace ChineseRaffleApi.Controllers
 
 
         [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public async Task<ActionResult<Gift>> AddGift([FromBody] AddGiftDto gift)
+        [HttpPost] 
+        public async Task<ActionResult<Gift>> AddGift([FromForm] AddGiftUploadDto giftDto)
         {
             try
             {
-                var Id = await _giftService.AddGiftAsync(gift);
-                return CreatedAtAction(nameof(GetGift), new { id = Id }, gift);
-            }
-            catch (ArgumentException ex)
-            {
-                // Duplicate title or other validation from service -> return 409 Conflict with message
-                return Conflict(ex.Message);
+                if (giftDto.ImageFile != null)
+                {
+                    var fileName = Guid.NewGuid().ToString() + Path.GetExtension(giftDto.ImageFile.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/gifts", fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await giftDto.ImageFile.CopyToAsync(stream);
+                    }
+                    giftDto.Image = $"images/gifts/{fileName}";
+                }
+
+                var id = await _giftService.AddGiftAsync(giftDto);
+                return CreatedAtAction(nameof(GetGift), new { id = id }, giftDto);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error occurred while adding a new gift");
+                _logger.LogError(ex, "Error adding gift");
                 return BadRequest(ex.Message);
             }
-          }
+        }
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateGift(int id, [FromBody] UpdateGiftDto gift)
+        public async Task<IActionResult> UpdateGift(int id, [FromForm] UpdateGiftUploadDto giftDto)
         {
             try
             {
-                await _giftService.UpdateGiftAsync(id, gift);
+                var existingGift = await _giftService.GetGiftByIdAsync(id);
+                if (existingGift == null) return NotFound($"Gift with id {id} not found.");
+
+                if (giftDto.ImageFile != null)
+                {
+                    if (!string.IsNullOrEmpty(existingGift.Image))
+                    {
+                        var oldPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", existingGift.Image);
+                        if (System.IO.File.Exists(oldPath))
+                        {
+                            System.IO.File.Delete(oldPath);
+                        }
+                    }
+
+                    var fileName = Guid.NewGuid().ToString() + Path.GetExtension(giftDto.ImageFile.FileName);
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "gifts");
+
+                    if (!Directory.Exists(uploadsFolder)) Directory.CreateDirectory(uploadsFolder);
+
+                    var filePath = Path.Combine(uploadsFolder, fileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await giftDto.ImageFile.CopyToAsync(stream);
+                    }
+
+                    giftDto.Image = $"images/gifts/{fileName}";
+                }
+                else
+                {
+                    giftDto.Image = existingGift.Image;
+                }
+
+                await _giftService.UpdateGiftAsync(id, giftDto);
                 return NoContent();
             }
             catch (ArgumentException ex)
             {
-                _logger.LogError(ex, "Error occurred while updating gift with id {GiftId}", id);
+                _logger.LogError(ex, "Validation error updating gift {GiftId}", id);
                 return Conflict(ex.Message);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error occurred while updating gift with id {GiftId}", id);
+                _logger.LogError(ex, "Unexpected error updating gift {GiftId}", id);
                 return BadRequest(ex.Message);
             }
         }
-
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteGift(int id)
@@ -138,9 +176,9 @@ namespace ChineseRaffleApi.Controllers
                 var isDeleted = await _giftService.DeleteGiftAsync(id);
                 if (isDeleted)
                 {
-                    return Ok($"Gift id:{id} was deleted");
+                    return Ok(new { message = "Gift deleted successfully", Id = id });
                 }
-                return NotFound($"Gift id:{id} not found");
+                return BadRequest(new { message = "Failed to delete" });
             }
             catch (Exception ex)
             {

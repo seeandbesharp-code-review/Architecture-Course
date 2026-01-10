@@ -12,7 +12,7 @@ namespace ChineseRaffleApi.Models
         public int Id { get; set; }
         [Required, MaxLength(100)]
         public string Title { get; set; } = string.Empty;
-        public int? CategoryId { get; set; }
+        public int? CategoryId { get; set; } = 3;
         public Category? Category { get; set; }
         [Required]
         public int DonorId { get; set; }

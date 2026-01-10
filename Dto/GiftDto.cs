@@ -7,13 +7,17 @@ namespace ChineseRaffleApi.Dto
     {
         [Required, MaxLength(100)]
         public string Title { get; set; } = string.Empty;
-        public int? CategoryId { get; set; }
+        public int? CategoryId { get; set; } = 3;
         [Required]
         public int DonorId { get; set; }
         [Required]
         public int TicketPrice { get; set; }
         [MaxLength(500)]
         public string? Image { get; set; }
+    }
+    public class AddGiftUploadDto : AddGiftDto
+    {
+        public IFormFile? ImageFile { get; set; } 
     }
     public class UpdateGiftDto
     {
@@ -26,6 +30,10 @@ namespace ChineseRaffleApi.Dto
         public string? Image { get; set; }
         public int? WinnerId { get; set; }
     }
+    public class UpdateGiftUploadDto : UpdateGiftDto
+    {
+        public IFormFile? ImageFile { get; set; }
+    }
     public class GetGiftDto
     {
         [Key]
@@ -35,6 +43,8 @@ namespace ChineseRaffleApi.Dto
         public string Title { get; set; } = string.Empty;
         [Required]
         public int TicketPrice { get; set; }
+        [Required]
+        public int DonorId { get; set; }
         public int? CategoryId { get; set; }
 
         public string? Image { get; set; }
