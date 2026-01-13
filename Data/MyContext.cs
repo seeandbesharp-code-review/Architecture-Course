@@ -21,10 +21,17 @@ namespace ChineseRaffleApi.Data
             modelBuilder.Entity<Gift>()
                 .HasIndex(g => g.Title)
                 .IsUnique();
-                     
+            modelBuilder.Entity<Gift>()
+           .HasOne(g => g.Donor)
+           .WithMany(d => d.GiftList)
+           .HasForeignKey(g => g.DonorId)
+           .OnDelete(DeleteBehavior.Restrict);
+
+
             modelBuilder.Entity<User>()
               .HasIndex(u => u.UserName)
               .IsUnique();
+
         }
 
 
