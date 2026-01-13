@@ -1,0 +1,131 @@
+2026-01-13 15:48:24.732 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '11/01/2026 11:00:21', Current time (UTC): '13/01/2026 13:48:24'.
+2026-01-13 15:49:35.251 +02:00 [INF] Generated JWT token for user 9
+2026-01-13 15:49:35.270 +02:00 [INF] User 9 authenticated successfully
+2026-01-13 16:43:19.292 +02:00 [ERR] Error retrieving all donors {"SourceContext":"ChineseRaffleApi.Controllers.DonorController","ActionId":"26638380-e0c8-4f23-8a64-77bc747dc82f","ActionName":"ChineseRaffleApi.Controllers.DonorController.GetAllDonors (ChineseRaffleApi)","RequestId":"0HNIIM44T6S9F:00000003","RequestPath":"/api/Donor","ConnectionId":"0HNIIM44T6S9F"}
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[ChineseRaffleApi.Models.Donor, ChineseRaffleApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[ChineseRaffleApi.Dto.GetDonorDto, ChineseRaffleApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Donor -> GetDonorDto
+ChineseRaffleApi.Models.Donor -> ChineseRaffleApi.Dto.GetDonorDto
+
+Type Map configuration:
+Donor -> GetDonorDto
+ChineseRaffleApi.Models.Donor -> ChineseRaffleApi.Dto.GetDonorDto
+
+Destination Member:
+GiftList
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Gift -> GetGiftForDonorDto
+ChineseRaffleApi.Models.Gift -> ChineseRaffleApi.Dto.GetGiftForDonorDto
+   at lambda_method140(Closure, Gift, GetGiftForDonorDto, ResolutionContext)
+   at lambda_method139(Closure, Object, List`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method139(Closure, Object, List`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method139(Closure, Object, List`1, ResolutionContext)
+   at ChineseRaffleApi.Services.DonorService.GetAllDonorsAsync() in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Services\DonorService.cs:line 47
+   at ChineseRaffleApi.Controllers.DonorController.GetAllDonors() in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Controllers\DonorController.cs:line 46
+2026-01-13 16:44:06.326 +02:00 [ERR] Error retrieving all donors {"SourceContext":"ChineseRaffleApi.Controllers.DonorController","ActionId":"26638380-e0c8-4f23-8a64-77bc747dc82f","ActionName":"ChineseRaffleApi.Controllers.DonorController.GetAllDonors (ChineseRaffleApi)","RequestId":"0HNIIM44T6S9F:00000007","RequestPath":"/api/Donor","ConnectionId":"0HNIIM44T6S9F"}
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[ChineseRaffleApi.Models.Donor, ChineseRaffleApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[ChineseRaffleApi.Dto.GetDonorDto, ChineseRaffleApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Donor -> GetDonorDto
+ChineseRaffleApi.Models.Donor -> ChineseRaffleApi.Dto.GetDonorDto
+
+Type Map configuration:
+Donor -> GetDonorDto
+ChineseRaffleApi.Models.Donor -> ChineseRaffleApi.Dto.GetDonorDto
+
+Destination Member:
+GiftList
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Gift -> GetGiftForDonorDto
+ChineseRaffleApi.Models.Gift -> ChineseRaffleApi.Dto.GetGiftForDonorDto
+   at lambda_method140(Closure, Gift, GetGiftForDonorDto, ResolutionContext)
+   at lambda_method139(Closure, Object, List`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method139(Closure, Object, List`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method139(Closure, Object, List`1, ResolutionContext)
+   at ChineseRaffleApi.Services.DonorService.GetAllDonorsAsync() in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Services\DonorService.cs:line 47
+   at ChineseRaffleApi.Controllers.DonorController.GetAllDonors() in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Controllers\DonorController.cs:line 46
+2026-01-13 16:44:14.893 +02:00 [ERR] Error retrieving all donors {"SourceContext":"ChineseRaffleApi.Controllers.DonorController","ActionId":"26638380-e0c8-4f23-8a64-77bc747dc82f","ActionName":"ChineseRaffleApi.Controllers.DonorController.GetAllDonors (ChineseRaffleApi)","RequestId":"0HNIIM44T6S9F:0000000B","RequestPath":"/api/Donor","ConnectionId":"0HNIIM44T6S9F"}
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[ChineseRaffleApi.Models.Donor, ChineseRaffleApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[ChineseRaffleApi.Dto.GetDonorDto, ChineseRaffleApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Donor -> GetDonorDto
+ChineseRaffleApi.Models.Donor -> ChineseRaffleApi.Dto.GetDonorDto
+
+Type Map configuration:
+Donor -> GetDonorDto
+ChineseRaffleApi.Models.Donor -> ChineseRaffleApi.Dto.GetDonorDto
+
+Destination Member:
+GiftList
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Gift -> GetGiftForDonorDto
+ChineseRaffleApi.Models.Gift -> ChineseRaffleApi.Dto.GetGiftForDonorDto
+   at lambda_method140(Closure, Gift, GetGiftForDonorDto, ResolutionContext)
+   at lambda_method139(Closure, Object, List`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method139(Closure, Object, List`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method139(Closure, Object, List`1, ResolutionContext)
+   at ChineseRaffleApi.Services.DonorService.GetAllDonorsAsync() in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Services\DonorService.cs:line 47
+   at ChineseRaffleApi.Controllers.DonorController.GetAllDonors() in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Controllers\DonorController.cs:line 46
+2026-01-13 16:45:04.610 +02:00 [ERR] Error retrieving all donors {"SourceContext":"ChineseRaffleApi.Controllers.DonorController","ActionId":"26638380-e0c8-4f23-8a64-77bc747dc82f","ActionName":"ChineseRaffleApi.Controllers.DonorController.GetAllDonors (ChineseRaffleApi)","RequestId":"0HNIIM44T6S9G:00000001","RequestPath":"/api/Donor","ConnectionId":"0HNIIM44T6S9G"}
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[ChineseRaffleApi.Models.Donor, ChineseRaffleApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[ChineseRaffleApi.Dto.GetDonorDto, ChineseRaffleApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Donor -> GetDonorDto
+ChineseRaffleApi.Models.Donor -> ChineseRaffleApi.Dto.GetDonorDto
+
+Type Map configuration:
+Donor -> GetDonorDto
+ChineseRaffleApi.Models.Donor -> ChineseRaffleApi.Dto.GetDonorDto
+
+Destination Member:
+GiftList
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Gift -> GetGiftForDonorDto
+ChineseRaffleApi.Models.Gift -> ChineseRaffleApi.Dto.GetGiftForDonorDto
+   at lambda_method140(Closure, Gift, GetGiftForDonorDto, ResolutionContext)
+   at lambda_method139(Closure, Object, List`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method139(Closure, Object, List`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method139(Closure, Object, List`1, ResolutionContext)
+   at ChineseRaffleApi.Services.DonorService.GetAllDonorsAsync() in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Services\DonorService.cs:line 47
+   at ChineseRaffleApi.Controllers.DonorController.GetAllDonors() in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Controllers\DonorController.cs:line 46

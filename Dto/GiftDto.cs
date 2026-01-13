@@ -17,7 +17,7 @@ namespace ChineseRaffleApi.Dto
     }
     public class AddGiftUploadDto : AddGiftDto
     {
-        public IFormFile? ImageFile { get; set; } 
+        public IFormFile? ImageFile { get; set; }
     }
     public class UpdateGiftDto
     {
@@ -49,7 +49,7 @@ namespace ChineseRaffleApi.Dto
 
         public string? Image { get; set; }
     }
-    public class  GetGiftWithTicketsDto
+    public class GetGiftWithTicketsDto
     {
         [Key]
         public int Id { get; set; }
@@ -71,5 +71,13 @@ namespace ChineseRaffleApi.Dto
         public int? CategoryId { get; set; }
 
         public IEnumerable<GetUserDto> Buyers { get; set; } = new List<GetUserDto>();
+    }
+    public class GetGiftForDonorDto
+    {
+        [Key]
+        public int Id { get; set; }
+        [MaxLength(100)]
+        [Required]
+        public string Title { get; set; } = string.Empty;
     }
 }

@@ -22,6 +22,7 @@ namespace ChineseRaffleApi.Mapping
               ? new List<User>()
                : src.TicketList
                .Select(t => t.User)));
+            CreateMap<Gift, GetGiftForDonorDto>();
         }
     }
 }

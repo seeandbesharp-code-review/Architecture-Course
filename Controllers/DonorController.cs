@@ -3,6 +3,7 @@ using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ChineseRaffleApi.Controllers
 {
@@ -95,14 +96,23 @@ namespace ChineseRaffleApi.Controllers
             {
                 var deleted = await _donorService.DeleteDonorAsync(id);
                 if (!deleted)
-                    return NotFound($"Donor id {id} not found");
+                    return NotFound(new { message = $"Donor id {id} not found" });
 
-                return Ok($"Donor id {id} was deleted");
+                return Ok(new { message = $"Donor id {id} was deleted" });
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogWarning(ex, $"Could not delete donor {id} due to existing dependencies.");
+
+                return Conflict(new
+                {
+                    message = "Cannot delete this donor because they have gifts associated with them. Please delete the gifts first."
+                });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Error deleting donor with id {id}");
-                return StatusCode(500, ex.Message);
+                return StatusCode(500, new { message = "An unexpected error occurred while deleting the donor." });
             }
         }
 
