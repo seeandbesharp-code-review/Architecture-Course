@@ -57,7 +57,6 @@ namespace ChineseRaffleApi.Dto
         [Required]
         public string Title { get; set; } = string.Empty;
         public int? CategoryId { get; set; }
-
         public IEnumerable<GetTicketDto> Tickets { get; set; } = new List<GetTicketDto>();
         public int QuantitySold { get; set; }
     }
@@ -69,7 +68,8 @@ namespace ChineseRaffleApi.Dto
         [Required]
         public string Title { get; set; } = string.Empty;
         public int? CategoryId { get; set; }
-
+        public string? Image { get; set; }
+        public int QuantitySold { get; set; }
         public IEnumerable<GetUserDto> Buyers { get; set; } = new List<GetUserDto>();
     }
     public class GetGiftForDonorDto

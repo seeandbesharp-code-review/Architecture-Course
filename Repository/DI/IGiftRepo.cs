@@ -14,6 +14,9 @@ namespace ChineseRaffleApi.Repository.DI
         Task<IEnumerable<Gift>> GetGiftByDonorNameAsync(string name);
         Task<Gift?> GetGiftByTitleAsync(string title);
         Task<IEnumerable<Gift>> GetGiftsWithTicketsAsync();
+        Task<IEnumerable<Gift>> GetGiftsWithBuyersAsync();
+
+
         Task<IEnumerable<Gift>> GetGiftsWithMaxPriceAsync();
         Task<IEnumerable<Gift>> GetGiftsWithMaxTicketsAsync();
         Task<IEnumerable<Gift>> GetSortedGiftsByPriceAsync();

@@ -132,14 +132,14 @@ namespace ChineseRaffleApi.Repository
                 .Where(g => g.TicketList.Count() == maxTickets)
                 .ToListAsync();
         }
-        //public async Task<IEnumerable<Gift>> GetAllGiftsWithBuyersAsync()
-        //{
-        //    return await _context.Gifts
-        //        .Include(g => g.Donor)
-        //        .Include(g => g.TicketList)
-        //          .ThenInclude(t => t.User)
-        //        .ToListAsync();
-        //}
+        public async Task<IEnumerable<Gift>> GetGiftsWithBuyersAsync()
+        {
+            return await _context.Gifts
+                .Include(g => g.Donor)
+                .Include(g => g.TicketList)
+                  .ThenInclude(t => t.User)
+                .ToListAsync();
+        }
         public async Task<IEnumerable<Gift>> GetSortedGiftsByPriceAsync()
         {
             return await _context.Gifts

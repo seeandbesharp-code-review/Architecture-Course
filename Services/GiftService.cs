@@ -130,7 +130,9 @@ namespace ChineseRaffleApi.Services
         }
         public async Task<IEnumerable<GetGiftWithBuyersDto>> GetGiftsWithBuyersAsync()
         {
-            var gifts = await _giftRepo.GetGiftsWithTicketsAsync();
+
+            var gifts = await _giftRepo.GetGiftsWithBuyersAsync();
+            
             return _mapper.Map<IEnumerable<GetGiftWithBuyersDto>>(gifts);
         }
         public async Task<IEnumerable<GetGiftDto>> GetSortedGiftsByPriceAsync()
