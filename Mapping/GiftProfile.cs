@@ -17,11 +17,20 @@ namespace ChineseRaffleApi.Mapping
             .ForMember(dest => dest.QuantitySold,
                     opt => opt.MapFrom(src => src.TicketList == null ? 0 : src.TicketList.Count()));
             CreateMap<Gift, GetGiftWithBuyersDto>()
-            .ForMember(dest => dest.Buyers, opt => opt.MapFrom(src =>
-              src.TicketList == null
-              ? new List<User>()
-               : src.TicketList
-               .Select(t => t.User)));
+        .ForMember(dest => dest.QuantitySold,
+            opt => opt.MapFrom(src => src.TicketList == null ? 0 : src.TicketList.Count()))
+        .ForMember(dest => dest.Buyers, opt => opt.MapFrom((src, dest, destMember, context) =>
+        {
+            if (src.TicketList == null || !src.TicketList.Any())
+                return new List<GetUserDto>();
+            var uniqueUsers = src.TicketList
+                .Where(t => t.User != null)
+                .Select(t => t.User)
+                .GroupBy(u => u.Id)
+                .Select(group => group.First())
+                .ToList();
+            return context.Mapper.Map<IEnumerable<GetUserDto>>(uniqueUsers);
+        }));
             CreateMap<Gift, GetGiftForDonorDto>();
         }
     }
