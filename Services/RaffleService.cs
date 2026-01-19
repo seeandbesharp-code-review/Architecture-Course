@@ -9,13 +9,15 @@ namespace ChineseRaffleApi.Services
     {
         private readonly IGiftRepo _giftRepo;
         private readonly IUserRepo _userRepo;
+        private readonly IEmailService _emailService;
 
-
-        public RaffleService(IGiftRepo giftRepo, IUserRepo userRepo)
+        public RaffleService(IGiftRepo giftRepo, IUserRepo userRepo, IEmailService emailService)
         {
             _giftRepo = giftRepo;
             _userRepo = userRepo;
+            _emailService = emailService;
         }
+
         public async Task<byte[]> DrawRaffleFileAsync()
         {
             var giftsWithTickets = await _giftRepo.GetGiftsWithTicketsAsync();
@@ -26,10 +28,11 @@ namespace ChineseRaffleApi.Services
             foreach (var gift in giftsWithTickets)
             {
                 var tickets = gift.TicketList.ToList();
-                if (tickets != null && tickets.Count() > 0)
+                if (tickets != null && tickets.Any())
                 {
-                    totalRevenue += gift.TicketPrice * gift.TicketList.Count();
-                    int winningIndex = random.Next(tickets.Count());
+                    totalRevenue += gift.TicketPrice * tickets.Count;
+
+                    int winningIndex = random.Next(tickets.Count);
                     var winningTicket = tickets[winningIndex];
                     var winner = await _userRepo.GetUserByIdAsync(winningTicket.UserId);
 
@@ -43,6 +46,22 @@ namespace ChineseRaffleApi.Services
                         TicketPrice = gift.TicketPrice,
                         Image = gift.Image,
                         WinnerId = winningTicket.UserId
+                    });
+
+                    _ = Task.Run(async () =>
+                    {
+                        try
+                        {
+                            await _emailService.SendWinnerEmailAsync(winner.Email, winner.UserName, gift.Title);
+                            System.Diagnostics.Debug.WriteLine($"✅ Email sent successfully to {winner.Email}");
+                        }
+                        catch (Exception ex)
+                        {
+                            System.Diagnostics.Debug.WriteLine($"❌ EMAIL ERROR: {ex.Message}");
+                            if (ex.InnerException != null)
+                              
+                           System.Diagnostics.Debug.WriteLine($"Inner: {ex.InnerException.Message}");
+                        }
                     });
                 }
             }
@@ -67,9 +86,6 @@ namespace ChineseRaffleApi.Services
             }
 
             return ms.ToArray();
-
-
-
         }
     }
-    }
+}
