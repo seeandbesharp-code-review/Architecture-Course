@@ -21,13 +21,6 @@ namespace ChineseRaffleApi.Controllers
             _logger = logger;
         }
 
-        //[Authorize(Roles = "Admin")]
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Basket>>> GetAllBaskets()
-        //{
-        //    var baskets = await _basketService.GetAllBasketsAsync();
-        //    return Ok(baskets);
-        //}
 
         [Authorize]
         [HttpGet("myBasket")]
@@ -36,7 +29,7 @@ namespace ChineseRaffleApi.Controllers
             try
             {
                 int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? throw new Exception("User ID not found in token"));
-                var basket = await _basketService.GetBasketByIdAsync(userId);
+                var basket = await _basketService.GetBasketsByUserIdAsync(userId);
 
                 if (basket == null)
                     return NotFound("Basket not found.");
@@ -59,21 +52,6 @@ namespace ChineseRaffleApi.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-
-        //[HttpGet("user/{userId}")]
-        //public async Task<ActionResult<IEnumerable<Basket>>> GetBasketsByUser(int userId)
-        //{
-        //    var baskets = await _basketService.GetBasketsByUserIdAsync(userId);
-        //    return Ok(baskets);
-        //}
-
-        //[Authorize(Roles = "Admin")]
-        //[HttpGet("gift/{giftId}")]
-        //public async Task<ActionResult<IEnumerable<Basket>>> GetBasketsByGift(int giftId)
-        //{
-        //    var baskets = await _basketService.GetBasketsByGiftIdAsync(giftId);
-        //    return Ok(baskets);
-        //}
 
         [Authorize]
         [HttpPost]
