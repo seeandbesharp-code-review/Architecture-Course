@@ -19,7 +19,7 @@ namespace ChineseRaffleApi.Repository
             return await _context.Baskets
                 .Include(b => b.Gift)
                 .Include(b => b.User)
-                .FirstOrDefaultAsync(b => b.Id == id);
+                .FirstOrDefaultAsync(b => b.UserId == id);
         }
 
         public async Task<IEnumerable<Basket>> GetAllBasketsAsync()
