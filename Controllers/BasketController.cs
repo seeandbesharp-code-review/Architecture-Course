@@ -89,13 +89,6 @@ namespace ChineseRaffleApi.Controllers
             {
                 int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? throw new Exception("User ID not found in token"));
 
-                var existingBasket = await _basketService.GetBasketByIdAsync(id);
-                if (existingBasket == null)
-                    return NotFound("Basket not found.");
-
-                if (existingBasket.UserId != userId)
-                    return Forbid("You are not allowed to update this basket.");
-
                 await _basketService.UpdateBasketAsync(id, basket);
 
                 return NoContent();
@@ -142,7 +135,28 @@ namespace ChineseRaffleApi.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+        [Authorize]
+        [HttpPost("buy")]
+        public async Task<ActionResult> BuyTicketsFromBasket()
+        {
+            try
+            {
+                int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? throw new Exception("User ID not found in token"));
 
+                await _basketService.BuyTicketsFromBasket(userId);
 
+                return NoContent();
+            }
+            catch (FormatException ex)
+            {
+                _logger.LogError(ex, "Invalid user ID format.");
+                return BadRequest($"Invalid user ID format: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error while buying tickets from basket.");
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }

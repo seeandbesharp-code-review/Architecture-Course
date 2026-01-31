@@ -28,6 +28,11 @@ namespace ChineseRaffleApi.Dto
         public int GiftId { get; set; }
         [Required]
         public int Quantity { get; set; }
+
+        public string GiftTitle { get; set; } = string.Empty;
+        public string GiftImage { get; set; } = string.Empty;
+        [Required]
+        public decimal GiftTicketPrice { get; set; }
     }
 
 }

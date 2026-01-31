@@ -1,0 +1,8 @@
+2026-01-31 21:53:42.183 +02:00 [ERR] Error while updating basket.
+System.Collections.Generic.KeyNotFoundException: Basket with id 1 not found
+   at ChineseRaffleApi.Services.BasketService.UpdateBasketAsync(Int32 id, UpdateBasketDto basket) in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Services\BasketService.cs:line 65
+   at ChineseRaffleApi.Controllers.BasketController.UpdateBasket(Int32 id, UpdateBasketDto basket) in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Controllers\BasketController.cs:line 92
+2026-01-31 21:59:36.103 +02:00 [ERR] Error while updating basket. {"SourceContext":"ChineseRaffleApi.Controllers.BasketController","ActionId":"e5798c5b-1273-4d66-a5ce-e02350470fe5","ActionName":"ChineseRaffleApi.Controllers.BasketController.UpdateBasket (ChineseRaffleApi)","RequestId":"0HNJ10COAT8LD:00000007","RequestPath":"/api/Basket/1","ConnectionId":"0HNJ10COAT8LD"}
+System.Collections.Generic.KeyNotFoundException: Basket with id 1 not found
+   at ChineseRaffleApi.Services.BasketService.UpdateBasketAsync(Int32 id, UpdateBasketDto basket) in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Services\BasketService.cs:line 65
+   at ChineseRaffleApi.Controllers.BasketController.UpdateBasket(Int32 id, UpdateBasketDto basket) in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Controllers\BasketController.cs:line 92

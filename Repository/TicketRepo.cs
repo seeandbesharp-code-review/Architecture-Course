@@ -26,7 +26,17 @@ namespace ChineseRaffleApi.Repository
         public async Task<int?> AddTicketAsync(Ticket ticket)
         {
             await _context.Tickets.AddAsync(ticket);
-            await _context.SaveChangesAsync();
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                // כאן תראי את השגיאה האמיתית מה-SQL Server
+                var innerException = ex.InnerException?.Message;
+                throw new Exception(innerException);
+            }
             return ticket.Id;   
         }
 

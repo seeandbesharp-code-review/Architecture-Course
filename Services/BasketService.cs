@@ -9,11 +9,13 @@ namespace ChineseRaffleApi.Services
     public class BasketService : IBasketService
     {
         private readonly IBasketRepo _basketRepo;
+        private readonly ITicketService _ticketService;
         private readonly IMapper _mapper;
 
-        public BasketService(IBasketRepo basketRepo, IMapper mapper)
+        public BasketService(IBasketRepo basketRepo, IMapper mapper, ITicketService ticketService)
         {
             _basketRepo = basketRepo;
+            _ticketService = ticketService;
             _mapper = mapper;
         }
         public async Task<GetBasketDto?> GetBasketByIdAsync(int id)
@@ -77,6 +79,27 @@ namespace ChineseRaffleApi.Services
         public async Task<bool> BasketExistsAsync(int id)
         {
             return await _basketRepo.BasketExistsAsync(id);
+        }
+        public async Task BuyTicketsFromBasket(int userId)
+        {
+            var baskets = await _basketRepo.GetBasketsByUserIdAsync(userId);
+
+            foreach (var basket in baskets)
+            {
+                var gift = basket.Gift;
+                if (gift == null)
+                    throw new Exception($"Gift with id {basket.GiftId} not found");
+                var ticket = new AddTicketDto
+                {
+                    UserId = userId,
+                    GiftId = gift.Id
+                };
+                for (int i = 0; i < basket.Quantity; i++)
+                {
+                  await _ticketService.AddTicketAsync(ticket);
+                }
+                await _basketRepo.DeleteBasketAsync(basket.Id);
+            }
         }
     }
 }

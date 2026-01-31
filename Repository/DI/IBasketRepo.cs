@@ -4,7 +4,7 @@ namespace ChineseRaffleApi.Repository.DI
 {
     public interface IBasketRepo
     {
-        Task<Basket> GetBasketByIdAsync(int id);
+        Task<Basket?> GetBasketByIdAsync(int id);
         Task<IEnumerable<Basket>> GetAllBasketsAsync();
         Task<int?> AddBasketAsync(Basket basket);
         Task UpdateBasketAsync(int id, Basket basket);

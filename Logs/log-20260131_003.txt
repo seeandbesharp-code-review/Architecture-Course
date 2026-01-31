@@ -1,0 +1,9 @@
+2026-01-31 21:20:08.960 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '28/01/2026 18:31:40', Current time (UTC): '31/01/2026 19:20:08'.
+2026-01-31 21:21:23.469 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '28/01/2026 18:31:40', Current time (UTC): '31/01/2026 19:21:23'.
+2026-01-31 21:21:23.546 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '28/01/2026 18:31:40', Current time (UTC): '31/01/2026 19:21:23'.
+2026-01-31 21:27:22.113 +02:00 [INF] Generated JWT token for user 11
+2026-01-31 21:27:22.136 +02:00 [INF] User 11 authenticated successfully
+2026-01-31 21:53:42.183 +02:00 [ERR] Error while updating basket. {"SourceContext":"ChineseRaffleApi.Controllers.BasketController","ActionId":"d9527dce-b7ea-4931-ac35-494ade9bb3bb","ActionName":"ChineseRaffleApi.Controllers.BasketController.UpdateBasket (ChineseRaffleApi)","RequestId":"0HNJ109CQ9PI2:00000009","RequestPath":"/api/Basket/1","ConnectionId":"0HNJ109CQ9PI2"}
+System.Collections.Generic.KeyNotFoundException: Basket with id 1 not found
+   at ChineseRaffleApi.Services.BasketService.UpdateBasketAsync(Int32 id, UpdateBasketDto basket) in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Services\BasketService.cs:line 65
+   at ChineseRaffleApi.Controllers.BasketController.UpdateBasket(Int32 id, UpdateBasketDto basket) in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Controllers\BasketController.cs:line 92

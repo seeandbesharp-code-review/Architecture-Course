@@ -13,5 +13,6 @@ namespace ChineseRaffleApi.Services.DI
         Task<bool> BasketExistsAsync(int basketId);
         Task<IEnumerable<GetBasketDto>> GetBasketsByUserIdAsync(int userId);
         Task<IEnumerable<GetBasketDto>> GetBasketsByGiftIdAsync(int giftId);
+        Task BuyTicketsFromBasket(int userId);
     }
 }
