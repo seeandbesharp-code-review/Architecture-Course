@@ -14,12 +14,10 @@ namespace ChineseRaffleApi.Repository
         {
             _context = context;
         }
-        public async Task<Basket> GetBasketByIdAsync(int id)
+        public async Task<Basket?> GetBasketByIdAsync(int id)
         {
             return await _context.Baskets
-                .Include(b => b.Gift)
-                .Include(b => b.User)
-                .FirstOrDefaultAsync(b => b.UserId == id);
+                .FirstOrDefaultAsync(b => b.Id == id);
         }
 
         public async Task<IEnumerable<Basket>> GetAllBasketsAsync()

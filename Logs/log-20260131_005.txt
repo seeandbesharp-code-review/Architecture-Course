@@ -1,0 +1,14 @@
+2026-01-31 21:59:36.103 +02:00 [ERR] Error while updating basket.
+System.Collections.Generic.KeyNotFoundException: Basket with id 1 not found
+   at ChineseRaffleApi.Services.BasketService.UpdateBasketAsync(Int32 id, UpdateBasketDto basket) in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Services\BasketService.cs:line 65
+   at ChineseRaffleApi.Controllers.BasketController.UpdateBasket(Int32 id, UpdateBasketDto basket) in D:\WebApi\ChineseRaffleApi\ChineseRaffleApi\Controllers\BasketController.cs:line 92
+2026-01-31 22:55:37.399 +02:00 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJ11CAO1ML8:00000005","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJ11CAO1ML8"}
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - ChineseRaffleApi.Controllers.BasketController.BuyTicketsFromBasket (ChineseRaffleApi). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`4 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(OpenApiDocument document, IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)

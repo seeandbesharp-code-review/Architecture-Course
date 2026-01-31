@@ -1,2 +1,0 @@
-2026-01-10 23:23:43.048 +02:00 [INF] Generated JWT token for user 9
-2026-01-10 23:23:43.179 +02:00 [INF] User 9 authenticated successfully
