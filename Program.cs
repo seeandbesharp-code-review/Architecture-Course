@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.Text;
+using System.Threading.RateLimiting;
 using Microsoft.OpenApi.Models;
 
 
@@ -75,6 +76,11 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration["RedisSettings:ConnectionString"];
+});
+
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 var secretKey = jwtSettings["SecretKey"] ?? throw new InvalidOperationException("JWT SecretKey is not configured");
 
@@ -122,7 +128,7 @@ builder.Services.AddAuthentication(options =>
         {
             context.Response.StatusCode = 403;
             context.Response.ContentType = "application/json";
-            var result = System.Text.Json.JsonSerializer.Serialize(new { message = "Forbidden – you do not have the required permissions" });
+            var result = System.Text.Json.JsonSerializer.Serialize(new { message = "Forbidden ï¿½ you do not have the required permissions" });
             return context.Response.WriteAsync(result);
         }
     };
@@ -139,6 +145,15 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddRateLimiter(options =>
+{
+    options.AddSlidingWindowLimiter(policyName: "sliding", limiterOptions =>
+    {
+        limiterOptions.Window = TimeSpan.FromMinutes(1);
+        limiterOptions.SegmentsPerWindow = 3;
+        limiterOptions.PermitLimit = 10;
+    });
+});
 
 var app = builder.Build();
 
@@ -152,6 +167,7 @@ app.UseHttpsRedirection();
 
 app.UseCors("CorsPolicy");
 app.UseStaticFiles();
+app.UseRateLimiter();
 app.UseAuthentication(); 
 app.UseAuthorization();  
 

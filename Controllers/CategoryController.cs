@@ -2,6 +2,7 @@
 using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using static ChineseRaffleApi.Dto.CategoryDto;
 
 namespace ChineseRaffleApi.Controllers
@@ -19,6 +20,7 @@ namespace ChineseRaffleApi.Controllers
             _logger = logger;
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpGet]
         public async Task<IActionResult> GetAllCategories()
         {
@@ -34,6 +36,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCategoryById(int id)
         {
@@ -51,6 +54,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpGet("{id}/gifts")]
         public async Task<IActionResult> GetCategoryWithGifts(int id)
         {
@@ -67,6 +71,7 @@ namespace ChineseRaffleApi.Controllers
                 return StatusCode(500, "An error occurred.");
             }
         }
+        [EnableRateLimiting("sliding")]
         [HttpGet("gifts")]
 
         public async Task<IActionResult> GetAllCategoriesWithGifts()
@@ -86,6 +91,7 @@ namespace ChineseRaffleApi.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [EnableRateLimiting("sliding")]
         [HttpPost]
         public async Task<IActionResult> AddCategory([FromBody] AddCategoryDto categoryDto)
         {
@@ -106,6 +112,7 @@ namespace ChineseRaffleApi.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [EnableRateLimiting("sliding")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCategory(int id, [FromBody] UpdateCategoryDto categoryDto)
         {
@@ -130,6 +137,7 @@ namespace ChineseRaffleApi.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [EnableRateLimiting("sliding")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {

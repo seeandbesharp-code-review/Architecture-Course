@@ -5,6 +5,9 @@ using ChineseRaffleApi.Repository;
 using ChineseRaffleApi.Repository.DI;
 using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Configuration;
+using System.Text.Json;
 
 namespace ChineseRaffleApi.Services
 {
@@ -12,18 +15,40 @@ namespace ChineseRaffleApi.Services
     {
         private readonly IGiftRepo _giftRepo;
         private readonly IMapper _mapper;
+        private readonly IDistributedCache _cache;
+        private readonly IConfiguration _config;
 
 
-        public GiftService(IGiftRepo giftRepo, IMapper mapper)
+        public GiftService(IGiftRepo giftRepo, IMapper mapper, IDistributedCache cache, IConfiguration config)
         {
             _giftRepo = giftRepo;
             _mapper = mapper;
+            _cache = cache;
+            _config = config;
         }
 
         public async Task<GetGiftDto?> GetGiftByIdAsync(int id)
         {
-            var gift =  await _giftRepo.GetGiftByIdAsync(id);
-            return _mapper.Map<GetGiftDto>(gift);
+            var cacheKey = $"gift:{id}";
+            var cachedData = await _cache.GetStringAsync(cacheKey);
+            
+            if (!string.IsNullOrEmpty(cachedData))
+            {
+                return JsonSerializer.Deserialize<GetGiftDto>(cachedData);
+            }
+            
+            var gift = await _giftRepo.GetGiftByIdAsync(id);
+            if (gift == null) return null;
+            
+            var dto = _mapper.Map<GetGiftDto>(gift);
+            var ttl = int.Parse(_config["RedisSettings:DefaultTTL"] ?? "300");
+            
+            await _cache.SetStringAsync(cacheKey, JsonSerializer.Serialize(dto), new DistributedCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(ttl)
+            });
+            
+            return dto;
         }
 
         public async Task<IEnumerable<GetGiftDto>> GetAllGiftsAsync()
@@ -88,13 +113,22 @@ namespace ChineseRaffleApi.Services
             var updated = await _giftRepo.UpdateGiftAsync(id, existing);
             if (!updated)
                 throw new InvalidOperationException($"Failed to update gift with id {id}.");
+            
+            // Invalidate cache
+            await _cache.RemoveAsync($"gift:{id}");
+            
             return true;
 
         }
 
         public async Task<bool> DeleteGiftAsync(int id)
         {
-            return await _giftRepo.DeleteGiftAsync(id);
+            var result = await _giftRepo.DeleteGiftAsync(id);
+            
+            // Invalidate cache
+            await _cache.RemoveAsync($"gift:{id}");
+            
+            return result;
         }
 
         public async Task<bool> GiftExistsAsync(string title)
