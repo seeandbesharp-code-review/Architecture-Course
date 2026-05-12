@@ -2,6 +2,7 @@
 using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace ChineseRaffleApi.Controllers
 {
@@ -23,6 +24,7 @@ namespace ChineseRaffleApi.Controllers
         /// <summary>
         /// Authenticate user and get JWT token
         /// </summary>
+        [EnableRateLimiting("sliding")]
         [HttpPost("login")]
         [ProducesResponseType(typeof(LoginResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -44,6 +46,7 @@ namespace ChineseRaffleApi.Controllers
             return Ok(result);
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpPost("register")]
         [ProducesResponseType(typeof(GetUserDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

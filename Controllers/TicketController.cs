@@ -4,6 +4,7 @@ using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using System.Security.Claims;
 
 namespace ChineseRaffleApi.Controllers
@@ -21,6 +22,7 @@ namespace ChineseRaffleApi.Controllers
             _logger = logger;
         }
         [Authorize]
+        [EnableRateLimiting("sliding")]
         [HttpGet("myTickets")]
         public async Task<ActionResult<GetTicketDto>> GetMyTickets()
         {
@@ -50,6 +52,7 @@ namespace ChineseRaffleApi.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [EnableRateLimiting("sliding")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GetTicketDto>>> GetTickets()
         {
@@ -67,6 +70,7 @@ namespace ChineseRaffleApi.Controllers
 
 
         [Authorize]
+        [EnableRateLimiting("sliding")]
         [HttpPost]
         public async Task<ActionResult> CreateTicket(AddTicketDto ticket)
         {

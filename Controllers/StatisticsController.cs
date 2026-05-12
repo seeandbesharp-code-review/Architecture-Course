@@ -2,6 +2,7 @@
 using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace ChineseRaffleApi.Controllers
 {
@@ -16,6 +17,7 @@ namespace ChineseRaffleApi.Controllers
             _statsService = statsService;
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpGet("summary")]
         public async Task<ActionResult<ChineseRaffleSummaryDto>> GetSummary()
         {

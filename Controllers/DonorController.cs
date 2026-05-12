@@ -3,6 +3,7 @@ using ChineseRaffleApi.Models;
 using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChineseRaffleApi.Controllers
@@ -21,6 +22,7 @@ namespace ChineseRaffleApi.Controllers
             _logger = logger;
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpGet("{id}")]
         public async Task<ActionResult<GetDonorDto>> GetDonor(int id)
         {
@@ -39,6 +41,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GetDonorDto>>> GetAllDonors()
         {
@@ -54,6 +57,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpPost]
         public async Task<ActionResult> AddDonor([FromBody] AddDonorDto donor)
         {
@@ -69,6 +73,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateDonor(int id, [FromBody] UpdateDonorDto donor)
         {
@@ -89,6 +94,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDonor(int id)
         {

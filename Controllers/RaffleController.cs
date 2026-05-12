@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace ChineseRaffleApi.Controllers
 {
@@ -19,6 +20,7 @@ namespace ChineseRaffleApi.Controllers
             _logger = logger;
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpGet("download-raffle-zip")]
         public async Task<IActionResult> DownloadRaffleZip()
         {

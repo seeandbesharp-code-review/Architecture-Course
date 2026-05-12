@@ -4,6 +4,7 @@ using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using System.Security.Claims;
 
 namespace ChineseRaffleApi.Controllers
@@ -23,6 +24,7 @@ namespace ChineseRaffleApi.Controllers
 
 
         [Authorize]
+        [EnableRateLimiting("sliding")]
         [HttpGet("myBasket")]
         public async Task<IActionResult> GetMyBasket()
         {
@@ -54,6 +56,7 @@ namespace ChineseRaffleApi.Controllers
         }
 
         [Authorize]
+        [EnableRateLimiting("sliding")]
         [HttpPost]
         public async Task<ActionResult> AddBasket(AddBasketDto basket)
         {
@@ -82,6 +85,7 @@ namespace ChineseRaffleApi.Controllers
 
 
         [Authorize]
+        [EnableRateLimiting("sliding")]
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateBasket(int id, UpdateBasketDto basket)
         {
@@ -106,6 +110,7 @@ namespace ChineseRaffleApi.Controllers
 
         }
         [Authorize]
+        [EnableRateLimiting("sliding")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteBasket(int id)
         {

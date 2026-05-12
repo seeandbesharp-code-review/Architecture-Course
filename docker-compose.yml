@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  identity-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: YourStrong!Passw0rd
+    ports:
+      - "1433:1433"
+    volumes:
+      - identity_data:/var/opt/mssql
+
+  raffle-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: YourStrong!Passw0rd
+    ports:
+      - "1434:1433"
+    volumes:
+      - raffle_data:/var/opt/mssql
+
+  inventory-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: YourStrong!Passw0rd
+    ports:
+      - "1435:1433"
+    volumes:
+      - inventory_data:/var/opt/mssql
+
+  analytics-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: YourStrong!Passw0rd
+    ports:
+      - "1436:1433"
+    volumes:
+      - analytics_data:/var/opt/mssql
+
+  redis:
+    image: redis:alpine
+    command: redis-server --requirepass "Cb0534172647"
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  identity_data:
+  raffle_data:
+  inventory_data:
+  analytics_data:
+  redis_data:

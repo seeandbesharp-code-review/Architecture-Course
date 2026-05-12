@@ -1,0 +1,6 @@
+2026-02-01 19:53:41.355 +02:00 [INF] Generated JWT token for user 1
+2026-02-01 19:53:41.549 +02:00 [INF] User 1 authenticated successfully
+2026-02-01 19:54:58.837 +02:00 [INF] Generated JWT token for user 2
+2026-02-01 19:54:58.845 +02:00 [INF] User 2 authenticated successfully
+2026-02-01 19:57:42.313 +02:00 [INF] Generated JWT token for user 1
+2026-02-01 19:57:42.316 +02:00 [INF] User 1 authenticated successfully

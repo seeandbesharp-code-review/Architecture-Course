@@ -5,6 +5,7 @@ using ChineseRaffleApi.Repository.DI;
 using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using System.Security.Claims;
 
 namespace ChineseRaffleApi.Controllers
@@ -23,6 +24,7 @@ namespace ChineseRaffleApi.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [EnableRateLimiting("sliding")]
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
@@ -39,6 +41,7 @@ namespace ChineseRaffleApi.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [EnableRateLimiting("sliding")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
@@ -61,6 +64,7 @@ namespace ChineseRaffleApi.Controllers
 
 
 
+        [EnableRateLimiting("sliding")]
         [HttpPost]
         public async Task<IActionResult> AddUser([FromBody] AddUserDto user)
         {
@@ -78,6 +82,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
         [Authorize]
+        [EnableRateLimiting("sliding")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserDto user)
         {
@@ -104,6 +109,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
         [Authorize]
+        [EnableRateLimiting("sliding")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {

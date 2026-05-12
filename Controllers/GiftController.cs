@@ -5,6 +5,7 @@ using ChineseRaffleApi.Services.DI;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Serilog;
 using System.Drawing;
 
@@ -22,6 +23,7 @@ namespace ChineseRaffleApi.Controllers
             _giftService = giftService;
             _logger = logger;
         }
+        [EnableRateLimiting("sliding")]
         [HttpGet("{id}")]
         public async Task<ActionResult<GetGiftDto>> GetGift(int id)
         {
@@ -41,6 +43,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GetGiftDto>>> GetAllGifts()
         {
@@ -56,6 +59,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpGet("sorted/price")]
         public async Task<ActionResult<IEnumerable<GetGiftDto>>> GetGiftsSortedByPrice()
         {
@@ -71,6 +75,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
 
+        [EnableRateLimiting("sliding")]
         [HttpGet("sorted/category")]
         public async Task<ActionResult<IEnumerable<GetGiftDto>>> GetGiftsSortedByCategory()
         {
@@ -89,6 +94,7 @@ namespace ChineseRaffleApi.Controllers
 
 
         [Authorize(Roles = "Admin")]
+        [EnableRateLimiting("sliding")]
         [HttpPost] 
         public async Task<ActionResult<Gift>> AddGift([FromForm] AddGiftUploadDto giftDto)
         {
@@ -116,6 +122,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
         [Authorize(Roles = "Admin")]
+        [EnableRateLimiting("sliding")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateGift(int id, [FromForm] UpdateGiftUploadDto giftDto)
         {
@@ -168,6 +175,7 @@ namespace ChineseRaffleApi.Controllers
             }
         }
         [Authorize(Roles = "Admin")]
+        [EnableRateLimiting("sliding")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteGift(int id)
         {
