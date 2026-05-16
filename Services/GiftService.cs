@@ -34,7 +34,16 @@ namespace ChineseRaffleApi.Services
             
             if (!string.IsNullOrEmpty(cachedData))
             {
-                return JsonSerializer.Deserialize<GetGiftDto>(cachedData);
+                try
+                {
+                    var cachedGift = JsonSerializer.Deserialize<GetGiftDto>(cachedData);
+                    if (cachedGift != null)
+                        return cachedGift;
+                }
+                catch
+                {
+                    // Invalid cache data, proceed to database fetch
+                }
             }
             
             var gift = await _giftRepo.GetGiftByIdAsync(id);
