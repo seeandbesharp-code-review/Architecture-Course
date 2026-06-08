@@ -1,0 +1,12 @@
+2026-06-11 16:22:27.688 +03:00 [INF] [Kafka Consumer] Started listening to topic: order-transactions
+2026-06-11 16:22:28.126 +03:00 [INF] [Kafka Consumer] New Message Received: {
+  "orderId": 5001,
+  "amount": 150,
+  "status": "COMPLETED"
+}
+2026-06-11 16:22:28.130 +03:00 [INF] [Kafka Consumer] New Message Received: {
+  "orderId": 5001,
+  "amount": 150,
+  "status": "faild"
+}
+2026-06-11 16:29:56.491 +03:00 [INF] [Kafka Consumer] Started listening to topic: order-transactions {"SourceContext":"ChineseRaffleApi.Services.KafkaConsumerService"}
