@@ -1,0 +1,1 @@
+2026-06-10 17:57:25.948 +03:00 [INF] [Kafka Consumer] Started listening to topic: order-transactions

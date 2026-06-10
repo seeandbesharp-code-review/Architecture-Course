@@ -1,4 +1,0 @@
-2026-01-18 22:05:06.449 +02:00 [INF] Generated JWT token for user 11
-2026-01-18 22:05:06.573 +02:00 [INF] User 11 authenticated successfully
-2026-01-18 22:23:07.129 +02:00 [INF] Generated JWT token for user 9 {"SourceContext":"ChineseRaffleApi.Services.TokenService","ActionId":"e4c7e958-e090-4354-b760-6c4abc63678a","ActionName":"ChineseRaffleApi.Controllers.AuthController.Login (ChineseRaffleApi)","RequestId":"0HNIMPT8GKRSE:00000007","RequestPath":"/api/Auth/login","ConnectionId":"0HNIMPT8GKRSE"}
-2026-01-18 22:23:07.240 +02:00 [INF] User 9 authenticated successfully {"SourceContext":"ChineseRaffleApi.Services.UserService","ActionId":"e4c7e958-e090-4354-b760-6c4abc63678a","ActionName":"ChineseRaffleApi.Controllers.AuthController.Login (ChineseRaffleApi)","RequestId":"0HNIMPT8GKRSE:00000007","RequestPath":"/api/Auth/login","ConnectionId":"0HNIMPT8GKRSE"}

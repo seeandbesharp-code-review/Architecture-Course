@@ -1,0 +1,2 @@
+2026-06-10 17:21:20.998 +03:00 [INF] [Kafka Consumer] Started listening to topic: order-transactions
+2026-06-10 17:24:48.623 +03:00 [INF] [Kafka Consumer] Started listening to topic: order-transactions {"SourceContext":"ChineseRaffleApi.Services.KafkaConsumerService"}

@@ -1,6 +1,0 @@
-2026-01-18 20:15:13.734 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '13/01/2026 17:45:58', Current time (UTC): '18/01/2026 18:15:13'.
-2026-01-18 20:15:13.734 +02:00 [WRN] JWT Authentication failed: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '13/01/2026 17:45:58', Current time (UTC): '18/01/2026 18:15:13'.
-2026-01-18 20:15:23.367 +02:00 [INF] Generated JWT token for user 9
-2026-01-18 20:15:23.384 +02:00 [INF] User 9 authenticated successfully
-2026-01-18 22:05:06.449 +02:00 [INF] Generated JWT token for user 11 {"SourceContext":"ChineseRaffleApi.Services.TokenService","ActionId":"d208f5eb-c7e0-4a1e-b635-6c8eaac18432","ActionName":"ChineseRaffleApi.Controllers.AuthController.Login (ChineseRaffleApi)","RequestId":"0HNIMPD9QBO5M:00000001","RequestPath":"/api/Auth/login","ConnectionId":"0HNIMPD9QBO5M"}
-2026-01-18 22:05:06.573 +02:00 [INF] User 11 authenticated successfully {"SourceContext":"ChineseRaffleApi.Services.UserService","ActionId":"d208f5eb-c7e0-4a1e-b635-6c8eaac18432","ActionName":"ChineseRaffleApi.Controllers.AuthController.Login (ChineseRaffleApi)","RequestId":"0HNIMPD9QBO5M:00000001","RequestPath":"/api/Auth/login","ConnectionId":"0HNIMPD9QBO5M"}

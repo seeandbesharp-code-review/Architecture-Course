@@ -7,13 +7,15 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using Microsoft.AspNetCore.RateLimiting;
+using System.Threading.RateLimiting;
 using System.Text;
 using System.Threading.RateLimiting;
 using Microsoft.OpenApi.Models;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
+// הגדרת לוגים באמצעות Serilog
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
@@ -27,6 +29,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
 });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -52,9 +55,11 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+// חיבור למסד הנתונים SQL Server
 builder.Services.AddDbContext<MyContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// רישום שכבות ה-Repository וה-Services (Dependency Injection)
 builder.Services.AddScoped<ITokenService, TokenService>();
 
 builder.Services.AddScoped<IUserRepo, UserRepo>();
@@ -65,6 +70,11 @@ builder.Services.AddScoped<IGiftRepo, GiftRepo>();
 builder.Services.AddScoped<IGiftService, GiftService>();
 builder.Services.AddScoped<ITicketRepo, TicketRepo>();
 builder.Services.AddScoped<ITicketService, TicketService>();
+// רישום שירות ה-Kafka החדש כ-Singleton כפי שנדרש
+builder.Services.AddSingleton<KafkaProducerService>();
+
+// הנה השורה החדשה שצריך להוסיף כאן:
+builder.Services.AddHostedService<KafkaConsumerService>();
 builder.Services.AddScoped<IBasketRepo, BasketRepo>();
 builder.Services.AddScoped<IBasketService, BasketService>();
 builder.Services.AddScoped<IRaffleService, RaffleService>();
@@ -74,13 +84,18 @@ builder.Services.AddScoped<IRaffleStatisticsService, RaffleStatisticsService>();
 
 builder.Services.AddScoped<IEmailService, EmailService>();
 
+// רישום שירות ה-Kafka החדש כ-Singleton כפי שנדרש
+builder.Services.AddSingleton<KafkaProducerService>();
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+// הגדרת קאש באמצעות Redis
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration["RedisSettings:ConnectionString"];
 });
 
+// הגדרות אימות ואבטחה עם JWT Token
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 var secretKey = jwtSettings["SecretKey"] ?? throw new InvalidOperationException("JWT SecretKey is not configured");
 
@@ -128,13 +143,13 @@ builder.Services.AddAuthentication(options =>
         {
             context.Response.StatusCode = 403;
             context.Response.ContentType = "application/json";
-            var result = System.Text.Json.JsonSerializer.Serialize(new { message = "Forbidden � you do not have the required permissions" });
+            var result = System.Text.Json.JsonSerializer.Serialize(new { message = "Forbidden – you do not have the required permissions" });
             return context.Response.WriteAsync(result);
         }
     };
 });
 
-
+// הגדרת מדיניות CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", policy =>
@@ -145,6 +160,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+// הגדרת הגבלת בקשות (Rate Limiting)
 builder.Services.AddRateLimiter(options =>
 {
     options.AddSlidingWindowLimiter(policyName: "sliding", limiterOptions =>
@@ -157,6 +173,7 @@ builder.Services.AddRateLimiter(options =>
 
 var app = builder.Build();
 
+// הגדרת ה-Middleware וסביבת העבודה
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -174,4 +191,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
